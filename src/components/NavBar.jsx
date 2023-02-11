@@ -75,10 +75,12 @@ const NavBar = () => {
           </Box>
           <Spacer />
           <Box p="10" w="300px" h="100">
-              <CartWidget />
+              <Link to={"/cart"}>
+                  <CartWidget />
+              </Link>
           </Box>
           <Box p="10" w="100px" h="100">
-            <Link to={"/cart"}>
+            <Link to={"/contact"}>
               <EmailIcon />
             </Link>
           </Box>

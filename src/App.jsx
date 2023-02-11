@@ -3,7 +3,8 @@ import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import NavBar from "./components/NavBar";
 import Welcome from "./components/Welcome";
-import Cart from "./components/Contact";
+import Cart from "./components/Cart";
+import Contact from "./components/Contact"
 
 function App() {
   return (
@@ -18,8 +19,8 @@ function App() {
           element={<ItemListContainer />}
         />
         <Route exact path="/item/:id" element={<ItemDetailContainer />} />
-
         <Route exact path="/cart" element={<Cart />} />
+        <Route exact path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
   );

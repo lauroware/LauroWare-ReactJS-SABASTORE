@@ -10,7 +10,7 @@ import {
   } from "@chakra-ui/react";
   import React from "react";
   
-  const Cart = () => {
+  const Contact = () => {
     return (
       <Container className="cart-container">
         <FormControl>
@@ -32,4 +32,4 @@ import {
     );
   };
   
-  export default Cart;
+  export default Contact;
