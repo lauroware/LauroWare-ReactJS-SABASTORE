@@ -2,23 +2,102 @@ import {
   FormControl,
   FormLabel,
   Input,
+  FormHelperText,
   Button,
   Container,
   Box,
-  Flex,
   Textarea,
+  Center,
+  Heading,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Text,
 } from "@chakra-ui/react";
-import React from "react";
+
+import { useState, useContext } from "react";
+import { CartContext } from "../contexts/ShoppingCartContext";
 
 const Cart = () => {
+  const [cart, setCart] = useContext(CartContext);
+  const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+
+  const handleSubmit = (e) => {
+    console.log(e);
+    e.preventDefault();
+    console.log(userName);
+    console.log(userEmail);
+    alert("Formulario enviado");
+  };
+
+  const deleteId = cart.map((clothe) => {
+    return clothe.id;
+  });
+
   return (
-    <Container className="cart-container">
-      <FormControl>
-        <Box>
-          <img src="/src/assets/carrito.png" alt="" />
-        </Box>
-      </FormControl>
-    </Container>
+    <>
+      <Center bg="black" h="100px" color="white">
+        <Heading as="h2" size="2xl">
+          Carrito de compras
+        </Heading>
+      </Center>
+      {cart.map((clothe) => {
+        return (
+          <Container
+            key={clothe.id}
+            maxW="container.sm"
+            className="main-catalogue"
+          >
+            <Card maxW="sm" m="3rem">
+              <CardHeader>
+                <Heading size="md">{clothe.name}</Heading>
+              </CardHeader>
+              <CardBody>
+                <Text as="b">Unidades: {clothe.quantity}</Text>
+                <Text>Precio: $ {clothe.price}</Text>
+                <Text>
+                  Precio Total: $
+                  <parse className="int">
+                    {" "}
+                    {clothe.price * clothe.quantity}
+                  </parse>
+                </Text>
+              </CardBody>
+              <CardFooter>
+                <Button
+                  colorScheme="red"
+                  onClick={() => console.log("Eliminando")}
+                >
+                  Eliminar del carrito
+                </Button>
+              </CardFooter>
+            </Card>
+          </Container>
+        );
+      })}
+      <Container className="cart-container">
+        <FormControl onSubmit={handleSubmit}>
+          <Box>
+            <FormLabel>Nombre </FormLabel>
+            <Input type="text" onChange={(e) => setUserName(e.target.value)} />
+            <FormLabel>Correo electrónico</FormLabel>
+            <Input
+              type="email"
+              onChange={(e) => setUserEmail(e.target.value)}
+            />
+          </Box>
+          <FormLabel>Comentarios</FormLabel>
+          <Textarea></Textarea>
+          <Box className="btn-send">
+            <Button type="submit" colorScheme="teal" variant="outline">
+              Enviar
+            </Button>
+          </Box>
+        </FormControl>
+      </Container>
+    </>
   );
 };
 

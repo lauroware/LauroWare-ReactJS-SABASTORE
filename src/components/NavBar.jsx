@@ -55,10 +55,10 @@ const NavBar = () => {
                 Categorias
               </MenuButton>
               <MenuList color="black" className="menu-list">
-                <Link to={`/category/${"Indumentaria"}`}>
+                <Link to={`/category/${"indumentaria"}`}>
                   <MenuItem>Indumentaria</MenuItem>
                 </Link>
-                <Link to={`/category/${"Accesorios"}`}>
+                <Link to={`/category/${"accesorios"}`}>
                   <MenuItem>Acceserorios</MenuItem>
                 </Link>
               </MenuList>

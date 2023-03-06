@@ -10,28 +10,31 @@ import Telefono from "./components/Telefono";
 import Info from "./components/Info";
 import Mail from "./components/Mail";
 import "./index.css";
+import { ShoppingCartProvider } from "./contexts/ShoppingCartContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route exact path="/welcome" element={<Welcome />} />
-        <Route exact path="/catalogue" element={<ItemListContainer />} />
-        <Route
-          exact
-          path="/category/:category"
-          element={<ItemListContainer />}
-        />
-        <Route exact path="/item/:id" element={<ItemDetailContainer />} />
-        <Route exact path="/cart" element={<Cart />} />
-        <Route exact path="/contact" element={<Contact />} />
-        <Route exact path="/info" element={<Info />} />
-        <Route exact path="/telefono" element={<Telefono />} />
-        <Route exact path="/mail" element={<Mail />} />
-      </Routes>
-      <NavBa />
-    </BrowserRouter>
+    <ShoppingCartProvider>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route exact path="/welcome" element={<Welcome />} />
+          <Route exact path="/catalogue" element={<ItemListContainer />} />
+          <Route
+            exact
+            path="/category/:category"
+            element={<ItemListContainer />}
+          />
+          <Route exact path="/item/:id" element={<ItemDetailContainer />} />
+          <Route exact path="/cart" element={<Cart />} />
+          <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/info" element={<Info />} />
+          <Route exact path="/telefono" element={<Telefono />} />
+          <Route exact path="/mail" element={<Mail />} />
+        </Routes>
+        <NavBa />
+      </BrowserRouter>
+    </ShoppingCartProvider>
   );
 }
 

@@ -6,18 +6,36 @@ import {
   Stack,
   Heading,
   Text,
-  Button,
   CardFooter,
   Divider,
 } from "@chakra-ui/react";
-import clotheImage from "../assets/LOGO1.png";
 import { useParams } from "react-router-dom";
 import ItemCount from "./ItemCount";
+
+import { useEffect, useState } from "react";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 const ItemDetail = ({ clothes }) => {
   const { id } = useParams();
 
+  const [producto, setProducto] = useState([]);
+
+  useEffect(() => {
+    const db = getFirestore();
+
+    const induRef = doc(db, "indumentaria", `${id}`);
+
+    getDoc(induRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        setProducto(snapshot.data());
+      } else {
+        console.log("No such document!");
+      }
+    });
+  }, []);
+
   const clotheFilter = clothes.filter((clothe) => clothe.id == id);
+
   return (
     <>
       {clotheFilter.map((clothe) => (
@@ -29,7 +47,7 @@ const ItemDetail = ({ clothes }) => {
                 <Stack mt="6" spacing="3">
                   <Heading size="md">{clothe.name}</Heading>
                   <Text color="blue.800" fontSize="l">
-                    Descripción: {clothe.description}
+                    Descripcion: {clothe.description}
                   </Text>
                   <Text color="blue.800" fontSize="l">
                     Categoria: {clothe.category}
@@ -44,12 +62,12 @@ const ItemDetail = ({ clothes }) => {
               </CardBody>
               <Divider />
               <CardFooter className="card-footer">
-                <ItemCount />
-                <Center className="btn-center">
-                  <Button variant="solid" colorScheme="blue">
-                    Agregar al carrito
-                  </Button>
-                </Center>
+                <ItemCount
+                  stock={clothe.stock}
+                  id={clothe.id}
+                  price={clothe.price}
+                  name={clothe.name}
+                />
               </CardFooter>
             </Card>
           </Center>

@@ -1,43 +1,33 @@
-import ItemList from "./ItemList";
-import Data from "../data.json";
-import { useParams } from "react-router-dom";
 import { Heading, Center } from "@chakra-ui/react";
+import { useState, useEffect } from "react";
+import ItemList from "./ItemList";
+import { useParams } from "react-router-dom";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
+
 const ItemListContainer = () => {
+  const [clothes, setClothes] = useState([]);
   const { category } = useParams();
 
-  const getDatos = () => {
-    return new Promise((resolve, reject) => {
-      if (Data.length === 0) {
-        reject(new Error("No hay datos"));
-      }
-      setTimeout(() => {
-        resolve(Data);
-      }, 2000);
+  useEffect(() => {
+    const db = getFirestore();
+    const clothesCollection = collection(db, "indumentaria");
+    getDocs(clothesCollection).then((querySnapshot) => {
+      const clothes = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setClothes(clothes);
     });
-  };
+  }, []);
 
-  async function fetchingData() {
-    try {
-      const datosFetched = await getDatos();
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  const catFilter = clothes.filter((clothe) => clothe.category === category);
 
-  fetchingData();
-
-  const catFilter = Data.filter((clothe) => clothe.category === category);
   return (
     <div>
-      <Center bg="black" h="100px" color="white">
-        <Heading as="h2" size="2xl">
-          Productos por categoria
-        </Heading>
-      </Center>
       {category ? (
         <ItemList clothes={catFilter} />
       ) : (
-        <ItemList clothes={Data} />
+        <ItemList clothes={clothes} />
       )}
     </div>
   );
