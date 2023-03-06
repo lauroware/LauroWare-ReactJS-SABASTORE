@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
-import { EmailIcon } from '@chakra-ui/icons'
 import {
   Flex,
   Box,
@@ -15,7 +14,6 @@ import {
   Button,
   Avatar,
 } from "@chakra-ui/react";
-
 import { ChevronDownIcon } from "@chakra-ui/icons";
 
 const NavBar = () => {
@@ -23,19 +21,15 @@ const NavBar = () => {
     <>
       <Container maxW="150rem" bg="black" color="white">
         <Flex alignItems="center" gap="2">
-          <Avatar
-            size="xl"
-            src="./src/assets/LOGO1.jpg"
-          />
+          <Avatar size="xl" src="./src/assets/LOGO.png" />
           <Box p="10" w="300px" h="100">
             <Link to={"/welcome"}>
-              <Heading size="md">Saba Clothes - Store</Heading>
+              <Heading size="md">Totinas - Store</Heading>
             </Link>
           </Box>
           <Spacer />
 
-
-      <Box>
+          <Box>
             <Menu>
               <Link to={"/catalogue"}>
                 <MenuButton
@@ -60,28 +54,20 @@ const NavBar = () => {
               >
                 Categorias
               </MenuButton>
-              <MenuList  color="black" className="menu-list">
+              <MenuList color="black" className="menu-list">
                 <Link to={`/category/${"Indumentaria"}`}>
                   <MenuItem>Indumentaria</MenuItem>
                 </Link>
                 <Link to={`/category/${"Accesorios"}`}>
-                  <MenuItem>Accesorios</MenuItem>
-                </Link>
-                <Link to={`/category/${"Sale!"}`}>
-                  <MenuItem>Sale!</MenuItem>
+                  <MenuItem>Acceserorios</MenuItem>
                 </Link>
               </MenuList>
             </Menu>
           </Box>
           <Spacer />
-          <Box p="10" w="300px" h="100">
-              <Link to={"/cart"}>
-                  <CartWidget />
-              </Link>
-          </Box>
           <Box p="10" w="100px" h="100">
-            <Link to={"/contact"}>
-              <EmailIcon />
+            <Link to={"/cart"}>
+              <CartWidget />
             </Link>
           </Box>
         </Flex>
@@ -89,6 +75,5 @@ const NavBar = () => {
     </>
   );
 };
-
 
 export default NavBar;

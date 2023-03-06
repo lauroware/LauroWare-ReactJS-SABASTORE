@@ -2,6 +2,7 @@ import ItemDetail from "./ItemDetail";
 import { useState } from "react";
 import Data from "../data.json";
 import { useParams } from "react-router";
+
 const ItemDetailContainer = () => {
   const { id } = useParams();
   const [clothes, setClothes] = useState([]);
@@ -20,7 +21,7 @@ const ItemDetailContainer = () => {
   async function fetchingData() {
     try {
       const datosFetched = await getDatos();
-      setBikes(datosFetched);
+      setClothes(datosFetched);
     } catch (err) {
       console.log(err);
     }

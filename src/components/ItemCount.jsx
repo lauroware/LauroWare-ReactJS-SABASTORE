@@ -23,7 +23,7 @@ const ItemCount = ({ stock }) => {
     <>
       <ButtonGroup size="sm" isAttached variant="outline">
         {count < 1 ? (
-          <Tooltip label="minimum stock reached" placement="bottom">
+          <Tooltip label="cantidad mínima" placement="bottom">
             <IconButton icon={<MinusIcon />} isDisabled />
           </Tooltip>
         ) : (
@@ -32,10 +32,10 @@ const ItemCount = ({ stock }) => {
         <Center w="50px" h="30px">
           <Text as="b">{count}</Text>
         </Center>
-        {count < stock ? (
+        {count < 5 ? (
           <IconButton icon={<AddIcon />} onClick={onAdd} />
         ) : (
-          <Tooltip label="stock limit reached" placement="bottom">
+          <Tooltip label="cantidad máxima" placement="bottom">
             <IconButton icon={<AddIcon />} isDisabled />
           </Tooltip>
         )}

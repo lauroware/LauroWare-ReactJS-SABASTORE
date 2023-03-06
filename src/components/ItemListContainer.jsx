@@ -31,10 +31,14 @@ const ItemListContainer = () => {
     <div>
       <Center bg="black" h="100px" color="white">
         <Heading as="h2" size="2xl">
-          Indumentaria por categoria
+          Productos por categoria
         </Heading>
       </Center>
-      {category ? <ItemList clothes={catFilter} /> : <ItemList clothes={Data} />}
+      {category ? (
+        <ItemList clothes={catFilter} />
+      ) : (
+        <ItemList clothes={Data} />
+      )}
     </div>
   );
 };

@@ -1,38 +1,38 @@
 [
-{
+  {
     "id": 1,
     "name": "Camisa Kate",
     "price": 6230,
-    "description":"Camisa de tela blanca en talle único.",
-    "stock":5,
-    "category":"Indumentaria",
-    "imag":"../camisa kate.jpg"
+    "description": "Camisa de tela blanca en talle único.",
+    "stock": 5,
+    "category": "Indumentaria",
+    "imag": "/src/assets/camisa kate.jpg"
   },
   {
     "id": 2,
     "name": "Remera Coco Rosa",
     "price": 2670,
-    "description":"Camisa color rosa estampada talle M.",
-    "stock":4,
-    "category":"Indumentaria",
-    "imag":"../assets/remera coco.jpg"
+    "description": "Camisa color rosa estampada talle M.",
+    "stock": 5,
+    "category": "Indumentaria",
+    "imag": "/src/assets/remera coco.jpg"
   },
   {
     "id": 3,
     "name": "Body Pri",
     "price": 3950,
-    "description":"Hermoso body opciones color naranja y verde.",
-    "stock":1,
-    "category":"Indumentaria",
-    "imag":"../assets/body pri.jpg"
+    "description": "Hermoso body opciones color naranja y verde.",
+    "stock": 5,
+    "category": "Indumentaria",
+    "imag": "/src/assets/body pri.jpg"
   },
   {
     "id": 4,
     "name": "Mochila Pili Rosa",
     "price": 7120,
-    "description":"Mochila Totinas pili color rosa.",
-    "stock":3,
-    "category":"Accesorios",
-    "imag":"../assets/mochila totinas.jpg"
+    "description": "./assets/Mochila Totinas pili color rosa.",
+    "stock": 5,
+    "category": "Accesorios",
+    "imag": "/src/assets/mochila totinas.jpg"
   }
 ]

@@ -1,5 +1,4 @@
 import React from "react";
-import clothe from "../assets/LOGO.png";
 import {
   Center,
   Card,
@@ -13,14 +12,14 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-const Item = ({ id, name, stock, category, imag, }) => {
+const Item = ({ id, name, stock, category, imag }) => {
   return (
     <div>
       <div key={id}>
         <Center p="1rem">
           <Card className="card-main">
             <CardBody>
-              <Image borderRadius="lg" src={clothe} />
+              <Image borderRadius="lg" src={imag} />
               <Stack mt="6" spacing="3">
                 <Heading size="md">{name}</Heading>
 

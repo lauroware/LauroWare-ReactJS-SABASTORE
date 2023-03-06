@@ -10,16 +10,16 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 
-const Cart = () => {
+const Telefono = () => {
   return (
     <Container className="cart-container">
       <FormControl>
         <Box>
-          <img src="/src/assets/carrito.png" alt="" />
+          <img src="/src/assets/TELEFONO.jpg" alt="" />
         </Box>
       </FormControl>
     </Container>
   );
 };
 
-export default Cart;
+export default Telefono;

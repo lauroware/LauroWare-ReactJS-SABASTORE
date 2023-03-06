@@ -1,5 +1,6 @@
 import Item from "./Item";
 import { Container } from "@chakra-ui/react";
+
 const ItemList = ({ clothes }) => {
   return (
     <>
@@ -14,7 +15,6 @@ const ItemList = ({ clothes }) => {
             price={clothe.price}
             stock={clothe.stock}
             category={clothe.category}
-            
           />
         ))}
       </Container>

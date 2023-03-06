@@ -4,7 +4,12 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import NavBar from "./components/NavBar";
 import Welcome from "./components/Welcome";
 import Cart from "./components/Cart";
-import Contact from "./components/Contact"
+import Contact from "./components/Contact";
+import NavBa from "./components/NavBa";
+import Telefono from "./components/Telefono";
+import Info from "./components/Info";
+import Mail from "./components/Mail";
+import "./index.css";
 
 function App() {
   return (
@@ -21,7 +26,11 @@ function App() {
         <Route exact path="/item/:id" element={<ItemDetailContainer />} />
         <Route exact path="/cart" element={<Cart />} />
         <Route exact path="/contact" element={<Contact />} />
+        <Route exact path="/info" element={<Info />} />
+        <Route exact path="/telefono" element={<Telefono />} />
+        <Route exact path="/mail" element={<Mail />} />
       </Routes>
+      <NavBa />
     </BrowserRouter>
   );
 }
