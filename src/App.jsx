@@ -9,12 +9,27 @@ import NavBa from "./components/NavBa";
 import Telefono from "./components/Telefono";
 import Info from "./components/Info";
 import Mail from "./components/Mail";
+import Checkout from "./components/Checkout";
 import "./index.css";
-import { ShoppingCartProvider } from "./contexts/ShoppingCartContext";
+import { CartProvider } from "./contexts/CartContext";
+import { useEffect } from "react";
+import Swal from "sweetalert2";
 
 function App() {
+  useEffect(() => {
+    mostrarAlerta();
+  }, []);
+
+  const mostrarAlerta = () => {
+    Swal.fire({
+      imageUrl: "https://totinas.com.ar/assets/img/logo%20(2).png",
+      imageHeight: 150,
+      imageAlt: "A tall image",
+    });
+  };
+
   return (
-    <ShoppingCartProvider>
+    <CartProvider>
       <BrowserRouter>
         <NavBar />
         <Routes>
@@ -31,10 +46,11 @@ function App() {
           <Route exact path="/info" element={<Info />} />
           <Route exact path="/telefono" element={<Telefono />} />
           <Route exact path="/mail" element={<Mail />} />
+          <Route exact path="/checkout" element={<Checkout />} />
         </Routes>
         <NavBa />
       </BrowserRouter>
-    </ShoppingCartProvider>
+    </CartProvider>
   );
 }
 

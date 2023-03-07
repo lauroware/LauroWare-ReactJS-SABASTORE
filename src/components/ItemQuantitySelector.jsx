@@ -8,9 +8,9 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
-import { CartContext } from "../contexts/ShoppingCartContext";
+import { CartContext } from "../contexts/CartContext";
 
-const ItemCount = ({ stock, id, price, name }) => {
+const ItemQuantitySelector = ({ stock, id, price, name }) => {
   const [cart, setCart] = useContext(CartContext);
   const [count, setCount] = useState(1);
 
@@ -58,7 +58,7 @@ const ItemCount = ({ stock, id, price, name }) => {
             Agregar al carrito: {count}
           </Button>
         </Center>
-        {count < 5 ? (
+        {count < stock ? (
           <IconButton icon={<AddIcon />} onClick={addQty} />
         ) : (
           <Tooltip label="stock limit reached" placement="bottom">
@@ -70,4 +70,4 @@ const ItemCount = ({ stock, id, price, name }) => {
   );
 };
 
-export default ItemCount;
+export default ItemQuantitySelector;

@@ -15,12 +15,12 @@ import {
   CardFooter,
   Text,
 } from "@chakra-ui/react";
-
+import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
-import { CartContext } from "../contexts/ShoppingCartContext";
+import { CartContext } from "../contexts/CartContext";
 
 const Cart = () => {
-  const [cart, setCart] = useContext(CartContext);
+  const [cart, setCart, clearCart] = useContext(CartContext);
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
 
@@ -66,12 +66,11 @@ const Cart = () => {
                 </Text>
               </CardBody>
               <CardFooter>
-                <Button
-                  colorScheme="red"
-                  onClick={() => console.log("Eliminando")}
-                >
-                  Eliminar del carrito
-                </Button>
+                <Link to={"/cart"}>
+                  <Button colorScheme="red" onClick={() => clearCart()}>
+                    Vaciar Carrito
+                  </Button>
+                </Link>
               </CardFooter>
             </Card>
           </Container>
@@ -91,8 +90,13 @@ const Cart = () => {
           <FormLabel>Comentarios</FormLabel>
           <Textarea></Textarea>
           <Box className="btn-send">
-            <Button type="submit" colorScheme="teal" variant="outline">
-              Enviar
+            <Button
+              type="submit"
+              colorScheme="teal"
+              variant="outline"
+              onClick={() => clearCart()}
+            >
+              <Link to={`/checkout`}>Solicitar</Link>
             </Button>
           </Box>
         </FormControl>

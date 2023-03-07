@@ -1,37 +1,34 @@
-import {
-  FormControl,
-  FormLabel,
-  Input,
-  FormHelperText,
-  Button,
-  Container,
-  Box,
-  Textarea,
-  Center,
-  Heading,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Text,
-} from "@chakra-ui/react";
-import { useState, useContext } from "react";
-import { CartContext } from "../contexts/ShoppingCartContext";
+import { collection, getFirestore, addDoc } from "firebase/firestore";
+import { useState } from "react";
+import { useEffect } from "react";
+import Swal from "sweetalert2";
+import { Button, ButtonGroup } from "@chakra-ui/react";
+import { CartContext } from "../contexts/CartContext";
 
-<Container className="cart-container">
-  <FormControl onSubmit={handleSubmit}>
-    <Box>
-      <FormLabel>Nombre y Apellido </FormLabel>
-      <Input type="text" onChange={(e) => setUserName(e.target.value)} />
-      <FormLabel>Correo electrónico</FormLabel>
-      <Input type="email" onChange={(e) => setUserEmail(e.target.value)} />
-    </Box>
-    <FormLabel>Confirmar punto de entrega:</FormLabel>
-    <Textarea></Textarea>
-    <Box className="btn-send">
-      <Button type="submit" colorScheme="teal" variant="outline">
-        Confirmar Compra
-      </Button>
-    </Box>
-  </FormControl>
-</Container>;
+<Button
+  size="md"
+  height="48px"
+  width="200px"
+  border="2px"
+  borderColor="green.500"
+>
+  Finalizar
+</Button>;
+
+function App1() {
+  useEffect(() => {
+    mostrarAlerta();
+  }, []);
+
+  const mostrarAlerta = () => {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Tu pedido a sido confirmado",
+      showConfirmButton: false,
+      timer: 4500,
+    });
+  };
+}
+
+export default App1;

@@ -10,7 +10,7 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
-import ItemCount from "./ItemCount";
+import ItemQuantitySelector from "./ItemQuantitySelector";
 
 import { useEffect, useState } from "react";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
@@ -62,7 +62,7 @@ const ItemDetail = ({ clothes }) => {
               </CardBody>
               <Divider />
               <CardFooter className="card-footer">
-                <ItemCount
+                <ItemQuantitySelector
                   stock={clothe.stock}
                   id={clothe.id}
                   price={clothe.price}

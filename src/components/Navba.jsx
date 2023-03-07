@@ -6,21 +6,7 @@ import {
   PhoneIcon,
   EmailIcon,
 } from "@chakra-ui/icons";
-import {
-  Flex,
-  Box,
-  Spacer,
-  Heading,
-  Container,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  Button,
-  Avatar,
-} from "@chakra-ui/react";
-
-import { ChevronDownIcon } from "@chakra-ui/icons";
+import { Flex, Box, Spacer, Heading, Container } from "@chakra-ui/react";
 
 const NavBa = () => {
   return (
