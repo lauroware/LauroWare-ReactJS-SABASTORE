@@ -10,6 +10,7 @@ import Telefono from "./components/Telefono";
 import Info from "./components/Info";
 import Mail from "./components/Mail";
 import Checkout from "./components/Checkout";
+import Brief from "./components/Brief";
 import "./index.css";
 import { CartProvider } from "./contexts/CartContext";
 import { useEffect } from "react";
@@ -47,6 +48,7 @@ function App() {
           <Route exact path="/telefono" element={<Telefono />} />
           <Route exact path="/mail" element={<Mail />} />
           <Route exact path="/checkout" element={<Checkout />} />
+          <Route exact path="/brief" element={<Brief />} />
         </Routes>
         <NavBa />
       </BrowserRouter>

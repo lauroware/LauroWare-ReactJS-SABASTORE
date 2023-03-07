@@ -11,7 +11,6 @@ import {
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import ItemQuantitySelector from "./ItemQuantitySelector";
-
 import { useEffect, useState } from "react";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 

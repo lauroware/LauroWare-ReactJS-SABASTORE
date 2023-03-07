@@ -1,34 +1,60 @@
-import { collection, getFirestore, addDoc } from "firebase/firestore";
-import { useState } from "react";
-import { useEffect } from "react";
-import Swal from "sweetalert2";
-import { Button, ButtonGroup } from "@chakra-ui/react";
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  Button,
+  Container,
+  Box,
+  Textarea,
+  Center,
+  Heading,
+} from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import { useState, useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
 
-<Button
-  size="md"
-  height="48px"
-  width="200px"
-  border="2px"
-  borderColor="green.500"
->
-  Finalizar
-</Button>;
+const Checkout = () => {
+  const [cart, setCart, clearCart] = useContext(CartContext);
 
-function App1() {
-  useEffect(() => {
-    mostrarAlerta();
-  }, []);
-
-  const mostrarAlerta = () => {
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Tu pedido a sido confirmado",
-      showConfirmButton: false,
-      timer: 4500,
-    });
+  const handleSubmit = (e) => {
+    e.preventDefault();
   };
-}
 
-export default App1;
+  return (
+    <>
+      <Center bg="black" h="100px" color="white">
+        <Heading as="h2" size="2xl">
+          Checkout
+        </Heading>
+      </Center>
+      <Container className="cart-container">
+        <FormControl onSubmit={handleSubmit}>
+          <Box>
+            <FormLabel>Nombre </FormLabel>
+            <Input type="text" onChange={(e) => setUserName(e.target.value)} />
+            <FormLabel>Correo electrónico</FormLabel>
+            <Input
+              type="email"
+              onChange={(e) => setUserEmail(e.target.value)}
+            />
+          </Box>
+          <FormLabel>
+            Ingresaar dirección de entrega o retiro en el local.
+          </FormLabel>
+          <Textarea></Textarea>
+          <Box className="btn-send">
+            <Button
+              type="submit"
+              colorScheme="blue"
+              onClick={() => clearCart()}
+            >
+              <Link to={`/brief`}>Solicitar</Link>
+            </Button>
+          </Box>
+        </FormControl>
+      </Container>
+    </>
+  );
+};
+
+export default Checkout;
