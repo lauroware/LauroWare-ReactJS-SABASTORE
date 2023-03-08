@@ -1,8 +1,24 @@
-import { collection, getFirestore, addDoc } from "firebase/firestore";
-import { useState } from "react";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
-import { Button, ButtonGroup } from "@chakra-ui/react";
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  FormHelperText,
+  Button,
+  Container,
+  Box,
+  Textarea,
+  Center,
+  Heading,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Text,
+} from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
 
 function App1() {
@@ -14,7 +30,7 @@ function App1() {
     Swal.fire({
       position: "center",
       icon: "success",
-      title: "Tu pedido a sido confirmado",
+      title: "Tu pedido a sido confirmado. Graciar por tu compra",
       showConfirmButton: false,
       timer: 4500,
     });

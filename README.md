@@ -8,3 +8,5 @@ El proyecto está realizado con:
 Chakra-ui (estilos)
 React-router-dom (rutas)
 Firebase - (Base de datos)
+
+Utilicé sweet alert.
