@@ -10,3 +10,6 @@ React-router-dom (rutas)
 Firebase - (Base de datos)
 
 Utilicé sweet alert.
+
+Video explicativo:
+https://drive.google.com/file/d/1urAkQS9x_u-JpSQezICRdBnXYGTyH-pH/view?usp=drivesdk

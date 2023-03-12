@@ -5,9 +5,12 @@ import {
   Button,
   Container,
   Box,
+  Text,
   Textarea,
   Center,
   Heading,
+  Card,
+  Image,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
@@ -18,6 +21,7 @@ const checkOut = () => {
   const [orderId, setOrderId] = useState(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [adress, setAdress] = useState("");
   const [cart, setCart, clearCart] = useContext(CartContext);
 
   const handleSubmit = (e) => {
@@ -36,33 +40,48 @@ const checkOut = () => {
   const order = {
     name,
     email,
+    adress,
   };
 
   return (
-    <div>
-      <h1>Alta de orden</h1>
+    <Container>
+      <Card className="card-main">
+        <div>
+          <h1>Alta de orden</h1>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Nombre y Apellido"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="E-mail"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <button type="submit">Enviar Información </button>
-        <br />
-      </form>
-      <p>Order Id: {orderId}</p>
-      <Link to={"/brief"}>
-        <Button colorScheme="green" onClick={() => clearCart()}>
-          Finalizar
-        </Button>
-      </Link>
-    </div>
+          <Image src="./src/assets/LOGO.png" />
+
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Nombre y Apellido"
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="E-mail"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Dirección de entrega"
+              onChange={(e) => setAdress(e.target.value)}
+            />
+            <Button colorScheme="blue" type="submit">
+              Enviar Información{" "}
+            </Button>
+            <br />
+          </form>
+          <p>Tu número de orden es: {orderId}</p>
+          <p>Una vez generado, guardalo para seguir el estado de tu pedido.</p>
+          <Link to={"/brief"}>
+            <Button colorScheme="green" onClick={() => clearCart()}>
+              Finalizar
+            </Button>
+          </Link>
+        </div>
+      </Card>
+    </Container>
   );
 };
 
