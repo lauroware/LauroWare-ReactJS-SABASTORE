@@ -1,30 +1,34 @@
+import { useEffect, useState, useContext } from "react";
 import {
-  FormControl,
-  FormLabel,
-  Input,
-  FormHelperText,
-  Button,
-  Container,
-  Box,
-  Textarea,
-  Center,
-  Heading,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Text,
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
 } from "@chakra-ui/react";
+import { Button, Container, Center, Heading, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
 
 const Cart = () => {
-  const [cart, setCart, clearCart] = useContext(CartContext);
+  const [cart, clearCart, removeId] = useContext(CartContext);
+  const [total, setTotal] = useState(0);
 
-  const deleteId = cart.map((clothe) => {
-    return clothe.id;
-  });
+  useEffect(() => {
+    let totalAmount = 0;
+    cart.forEach((clothe) => {
+      totalAmount += clothe.price * clothe.quantity;
+    });
+    setTotal(totalAmount);
+  }, [cart]);
+
+  const handleRemove = (id) => {
+    removeId(id);
+  };
 
   return (
     <>
@@ -42,25 +46,58 @@ const Cart = () => {
           >
             <br />
             <br />
-            <Text as="b">Producto: {clothe.name}</Text>
-            <Text as="b">Unidades: {clothe.quantity}</Text>
-            <Text>Precio: $ {clothe.price}</Text>
-            <Text>
-              Precio Total: $
-              <parse className="int"> {clothe.price * clothe.quantity}</parse>
-            </Text>
-            <Link to={"/cart"}>
-              <Button colorScheme="red" onClick={() => clearCart()}>
-                Vaciar Carrito
-              </Button>
-            </Link>
-            <Link to={"/Checkout"}>
-              <Button colorScheme="green">Solicitar</Button>
-            </Link>
-            <br />
+            <TableContainer>
+              <Table variant="simple">
+                <Thead>
+                  <Tr>
+                    <Th>Producto</Th>
+                    <Th>Unidades</Th>
+                    <Th isNumeric>Precio</Th>
+                    <Th isNumeric>Precio total</Th>
+                  </Tr>
+                </Thead>
+                <Tbody>
+                  <Tr>
+                    <Td>
+                      <Text as="b">{clothe.name}</Text>
+                    </Td>
+                    <Td>
+                      <Text as="b">{clothe.quantity}</Text>
+                    </Td>
+                    <Td isNumeric>$ {clothe.price}</Td>
+                    <Td isNumeric>$ {clothe.price * clothe.quantity}</Td>
+                    <Td>
+                      <Button
+                        colorScheme="red"
+                        onClick={() => handleRemove(clothe.id)}
+                      >
+                        X
+                      </Button>
+                    </Td>
+                  </Tr>
+                </Tbody>
+              </Table>
+            </TableContainer>
           </Container>
         );
       })}
+      {cart.length > 0 && (
+        <Container>
+          <Text fontWeight="bold" fontSize="2xl">
+            Total: ${total}
+          </Text>
+          <br />
+          <Link to={"/cart"}>
+            <Button colorScheme="red" onClick={() => clearCart()}>
+              Vaciar Carrito
+            </Button>
+          </Link>
+          <Link to={"/Checkout"}>
+            <Button colorScheme="green">Solicitar</Button>
+          </Link>
+        </Container>
+      )}
+      <br />
     </>
   );
 };

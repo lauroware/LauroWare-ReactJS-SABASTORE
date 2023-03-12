@@ -1,7 +1,4 @@
 import {
-  FormControl,
-  FormLabel,
-  Input,
   Button,
   Container,
   Box,
@@ -23,13 +20,17 @@ const checkOut = () => {
   const [email, setEmail] = useState("");
   const [adress, setAdress] = useState("");
   const [cart, setCart, clearCart] = useContext(CartContext);
+  const [isOrderIdGenerated, setIsOrderIdGenerated] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name === "" || email === "") {
       alert("No pueden existir campos vacios");
     } else {
-      addDoc(ordersCollection, order).then(({ id }) => setOrderId(id));
+      addDoc(ordersCollection, order).then(({ id }) => {
+        setOrderId(id);
+        setIsOrderIdGenerated(true);
+      });
     }
     setEmail(" ");
   };
@@ -41,6 +42,7 @@ const checkOut = () => {
     name,
     email,
     adress,
+    cart,
   };
 
   return (
@@ -75,7 +77,11 @@ const checkOut = () => {
           <p>Tu número de orden es: {orderId}</p>
           <p>Una vez generado, guardalo para seguir el estado de tu pedido.</p>
           <Link to={"/brief"}>
-            <Button colorScheme="green" onClick={() => clearCart()}>
+            <Button
+              colorScheme="green"
+              onClick={() => clearCart()}
+              disabled={!isOrderIdGenerated} // botón desactivado hasta que se genere el orderId
+            >
               Finalizar
             </Button>
           </Link>
