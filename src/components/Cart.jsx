@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 
 const Cart = () => {
-  const [cart, clearCart, removeId] = useContext(CartContext);
+  const [cart, setCart, clearCart, removeId] = useContext(CartContext);
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
