@@ -2,7 +2,6 @@ import React from "react";
 import { initializeApp } from "firebase/app";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import "./index.css";
 import { ChakraProvider } from "@chakra-ui/react";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
