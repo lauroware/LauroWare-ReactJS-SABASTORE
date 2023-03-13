@@ -80,7 +80,7 @@ const checkOut = () => {
             <Button
               colorScheme="green"
               onClick={() => clearCart()}
-              disabled={!isOrderIdGenerated} // botón desactivado hasta que se genere el orderId
+              style={{ display: isOrderIdGenerated ? "block" : "none" }}
             >
               Finalizar
             </Button>
