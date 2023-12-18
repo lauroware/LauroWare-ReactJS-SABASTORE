@@ -24,7 +24,7 @@ const NavBar = () => {
           <Avatar size="xl" src="./src/assets/LOGO.png" />
           <Box p="10" w="300px" h="100">
             <Link to={"/welcome"}>
-              <Heading size="md">Totinas - Store</Heading>
+              <Heading size="md">Totinas - Store Mayorista</Heading>
             </Link>
           </Box>
           <Spacer />
@@ -58,8 +58,8 @@ const NavBar = () => {
                 <Link to={`/category/${"indumentaria"}`}>
                   <MenuItem>Indumentaria</MenuItem>
                 </Link>
-                <Link to={`/category/${"accesorios"}`}>
-                  <MenuItem>Acceserorios</MenuItem>
+                <Link to={`/category/${"Billes"}`}>
+                  <MenuItem>Billes</MenuItem>
                 </Link>
               </MenuList>
             </Menu>

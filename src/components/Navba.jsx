@@ -15,7 +15,7 @@ const NavBa = () => {
         <Flex alignItems="center" gap="2">
           <Box p="10" w="300px" h="100">
             <Link to={"/welcome"}>
-              <Heading size="md">Totinas - 2023 </Heading>
+              <Heading size="md">Totinas - 2024 </Heading>
             </Link>
           </Box>
           <Spacer />
