@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar";
 import Welcome from "./components/Welcome";
 import Cart from "./components/Cart";
 import Contact from "./components/Contact";
-
+import NavBa from "./components/NavBa";
 import Telefono from "./components/Telefono";
 import Info from "./components/Info";
 import Mail from "./components/Mail";
