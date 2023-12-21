@@ -12,22 +12,26 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <Container className="cart-container">
-      <FormControl>
-        <Box>
-          <FormLabel>Nombre</FormLabel>
-          <Input type="text" />
-          <FormLabel>Correo Electrónico</FormLabel>
-          <Input type="email" />
-        </Box>
-        <FormLabel>Escribe tu mensaje</FormLabel>
-        <Textarea></Textarea>
-        <Box className="btn-send">
-          <Button colorScheme="teal" variant="outline">
+    <Container maxW="container.sm" className="cart-container">
+      <Flex direction="column" align="center">
+        <FormControl mb="4" w="100%">
+          <FormLabel htmlFor="name">Nombre</FormLabel>
+          <Input type="text" id="name" />
+        </FormControl>
+        <FormControl mb="4" w="100%">
+          <FormLabel htmlFor="email">Correo Electrónico</FormLabel>
+          <Input type="email" id="email" />
+        </FormControl>
+        <FormControl mb="4" w="100%">
+          <FormLabel htmlFor="message">Escribe tu mensaje</FormLabel>
+          <Textarea id="message" />
+        </FormControl>
+        <Box className="btn-send" w="100%">
+          <Button colorScheme="teal" variant="outline" w="100%">
             Enviar
           </Button>
         </Box>
-      </FormControl>
+      </Flex>
     </Container>
   );
 };

@@ -23,19 +23,15 @@ const Item = ({ id, name, stock, category, imag }) => {
               <Stack mt="6" spacing="3">
                 <Heading size="md">{name}</Heading>
 
-                <Text color="blue.800" fontSize="l">
-                  Categoria: {category}
-                </Text>
-                <Text color="red.600" fontSize="xl">
-                  Stock: {stock}
-                </Text>
+                <Text color="blue.800" fontSize="l"></Text>
+                <Text color="red.600" fontSize="xl"></Text>
               </Stack>
             </CardBody>
             <Divider />
             <CardFooter className="card-footer">
               <Center className="btn-center">
                 <Button variant="solid" colorScheme="blue">
-                  <Link to={`/item/${id}`}>Detalles</Link>
+                  <Link to={`/item/${id}`}>Comprar</Link>
                 </Button>
               </Center>
             </CardFooter>

@@ -41,9 +41,9 @@ const ItemQuantitySelector = ({ stock, id, price, name }) => {
 
   return (
     <>
-      <ButtonGroup size="sm" isAttached variant="outline">
+      <ButtonGroup size={{ base: "sm", md: "md" }} isAttached variant="outline">
         {count < 1 ? (
-          <Tooltip label="minimum stock reached" placement="bottom">
+          <Tooltip label="Stock mínimo alcanzado" placement="bottom">
             <IconButton icon={<MinusIcon />} isDisabled />
           </Tooltip>
         ) : (
@@ -61,7 +61,7 @@ const ItemQuantitySelector = ({ stock, id, price, name }) => {
         {count < stock ? (
           <IconButton icon={<AddIcon />} onClick={addQty} />
         ) : (
-          <Tooltip label="stock limit reached" placement="bottom">
+          <Tooltip label="Límite de stock alcanzado" placement="bottom">
             <IconButton icon={<AddIcon />} isDisabled />
           </Tooltip>
         )}

@@ -1,22 +1,34 @@
 import ItemDetail from "./ItemDetail";
 import { useState, useEffect } from "react";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { useParams } from "react-router-dom";
+import { getFirestore, collection, doc, getDoc } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    const db = getFirestore();
-    const clothesCollection = collection(db, "indumentaria");
-    getDocs(clothesCollection).then((querySnapshot) => {
-      const clothes = querySnapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      setData(clothes);
-    });
-  }, []);
+  const [item, setItem] = useState(null);
+  const { id } = useParams();
 
-  return <ItemDetail clothes={data} />;
+  useEffect(() => {
+    const fetchItem = async () => {
+      try {
+        const db = getFirestore();
+        const itemDoc = doc(db, "indumentaria", id);
+        const itemSnapshot = await getDoc(itemDoc);
+
+        if (itemSnapshot.exists()) {
+          const itemData = { ...itemSnapshot.data(), id: itemSnapshot.id };
+          setItem(itemData);
+        } else {
+          console.log("No se encontró el ítem");
+        }
+      } catch (error) {
+        console.error("Error al obtener el ítem:", error);
+      }
+    };
+
+    fetchItem();
+  }, [id]);
+
+  return <ItemDetail item={item} />;
 };
 
 export default ItemDetailContainer;

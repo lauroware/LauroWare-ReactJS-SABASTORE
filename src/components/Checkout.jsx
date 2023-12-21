@@ -1,94 +1,123 @@
+import React, { useState, useContext } from "react";
 import {
   Button,
   Container,
-  Box,
-  Text,
-  Textarea,
-  Center,
-  Heading,
   Card,
   Image,
+  FormControl,
+  FormLabel,
+  Input,
+  Center,
+  Heading,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { useState, useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
-import { collection, getFirestore, addDoc } from "firebase/firestore";
+import { collection, addDoc, getFirestore } from "firebase/firestore";
 
-const checkOut = () => {
+const Checkout = () => {
   const [orderId, setOrderId] = useState(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [adress, setAdress] = useState("");
+  const [phone, setPhone] = useState(""); // Nuevo campo para teléfono
+  const [address, setAddress] = useState("");
+  const [observations, setObservations] = useState(""); // Nuevo campo para observaciones
   const [cart, setCart, clearCart] = useContext(CartContext);
   const [isOrderIdGenerated, setIsOrderIdGenerated] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (name === "" || email === "") {
-      alert("No pueden existir campos vacios");
+      alert("No pueden existir campos vacíos");
     } else {
-      addDoc(ordersCollection, order).then(({ id }) => {
-        setOrderId(id);
+      try {
+        const db = getFirestore();
+        const ordersCollection = collection(db, "orden");
+
+        const order = {
+          name,
+          email,
+          phone, // Agregado el campo de teléfono
+          address,
+          observations, // Agregado el campo de observaciones
+          cart,
+        };
+
+        const docRef = await addDoc(ordersCollection, order);
+        setOrderId(docRef.id);
         setIsOrderIdGenerated(true);
-      });
+      } catch (error) {
+        console.error("Error adding document: ", error);
+      }
     }
-    setEmail(" ");
-  };
-
-  const db = getFirestore();
-  const ordersCollection = collection(db, "orden");
-
-  const order = {
-    name,
-    email,
-    adress,
-    cart,
   };
 
   return (
     <Container>
       <Card className="card-main">
-        <div>
-          <h1>Alta de orden</h1>
-
-          <Image src="./src/assets/LOGO.png" />
-
-          <form onSubmit={handleSubmit}>
-            <input
+        <Center>
+          <Heading as="h1">Alta de orden</Heading>
+        </Center>
+        <Image src="src/assets/LOGO.png" />
+        <form onSubmit={handleSubmit}>
+          <FormControl mb="4">
+            <FormLabel>Nombre y Apellido</FormLabel>
+            <Input
               type="text"
               placeholder="Nombre y Apellido"
               onChange={(e) => setName(e.target.value)}
             />
-            <input
-              type="text"
+          </FormControl>
+          <FormControl mb="4">
+            <FormLabel>E-mail</FormLabel>
+            <Input
+              type="email"
               placeholder="E-mail"
               onChange={(e) => setEmail(e.target.value)}
             />
-            <input
+          </FormControl>
+          <FormControl mb="4">
+            <FormLabel>Teléfono</FormLabel>
+            <Input
+              type="tel"
+              placeholder="Teléfono"
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </FormControl>
+          <FormControl mb="4">
+            <FormLabel>Dirección de entrega</FormLabel>
+            <Input
               type="text"
               placeholder="Dirección de entrega"
-              onChange={(e) => setAdress(e.target.value)}
+              onChange={(e) => setAddress(e.target.value)}
             />
-            <Button colorScheme="blue" type="submit">
-              Enviar Información{" "}
-            </Button>
-            <br />
-          </form>
-          <p>Tu número de orden es: {orderId}</p>
-          <p>Una vez generado, guardalo para seguir el estado de tu pedido.</p>
-          <Link to={"/brief"}>
-            <Button
-              colorScheme="green"
-              onClick={() => clearCart()}
-              style={{ display: isOrderIdGenerated ? "block" : "none" }}
-            >
-              Finalizar
-            </Button>
-          </Link>
-        </div>
+          </FormControl>
+          <FormControl mb="4">
+            <FormLabel>Observaciones</FormLabel>
+            <Input
+              type="text"
+              placeholder="Observaciones"
+              onChange={(e) => setObservations(e.target.value)}
+            />
+          </FormControl>
+          <Button colorScheme="blue" type="submit">
+            Enviar Información
+          </Button>
+        </form>
+        {isOrderIdGenerated && (
+          <div>
+            <p>Tu número de orden es: {orderId}</p>
+            <p>Guárdalo para seguir el estado de tu pedido.</p>
+            <Link to="/brief">
+              <Button colorScheme="green" onClick={clearCart}>
+                Finalizar
+              </Button>
+            </Link>
+          </div>
+        )}
       </Card>
     </Container>
   );
 };
 
-export default checkOut;
+export default Checkout;
