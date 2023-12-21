@@ -5,7 +5,7 @@ const Welcome = () => {
     <Center>
       <Box boxSize={{ base: "90%", md: "50%" }} textAlign="center">
         <Image
-          src="src/assets/LOGO1.png"
+          src="https://totinas.com.ar/assets/img/logo%20(2).png"
           alt="logo de la empresa"
           mx="auto" // Centra horizontalmente la imagen
           mb={{ base: 4, md: 8 }} // Ajusta los márgenes inferiores según tus necesidades
