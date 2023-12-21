@@ -43,24 +43,13 @@ const Checkout = () => {
 
     // Información del carrito
     pdf.text("Detalle del Carrito:", 20, 100);
-    let totalAmount = 0; // Inicializa la suma total
     cart.forEach((item, index) => {
       pdf.text(
-        `${index + 1}. ${item.name} x ${item.quantity} - $${item.price.toFixed(
-          2
-        )}`, // Agrega el precio al detalle
+        `${index + 1}. ${item.name} x ${item.quantity}`,
         30,
         110 + index * 10
       );
-      totalAmount += item.price * item.quantity; // Suma el precio del producto al total
     });
-
-    // Muestra el monto total
-    pdf.text(
-      `Monto Total: $${totalAmount.toFixed(2)}`,
-      20,
-      120 + cart.length * 10
-    );
 
     // Guarda el PDF con un nombre específico
     pdf.save("order.pdf");
