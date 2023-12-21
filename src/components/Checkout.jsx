@@ -84,7 +84,7 @@ const Checkout = () => {
         <Heading as="h1" mb="4">
           Alta de Orden
         </Heading>
-        <Image src=".src/assets/LOGO.png" alt="Logo" mb="4" />
+        <Image src="/assets/LOGO.png" alt="Logo" mb="4" />
 
         <form onSubmit={handleSubmit}>
           <FormControl mb="4">
