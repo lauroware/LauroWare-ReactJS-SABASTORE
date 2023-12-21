@@ -23,6 +23,8 @@ function App() {
 
   const mostrarAlerta = () => {
     Swal.fire({
+      title: "Bienvenidos a Totinas Mayoristas",
+      text: "Presiona Tienda para empezar. Puedes contactarnos con el botón ayuda",
       imageUrl: "https://totinas.com.ar/assets/img/logo%20(2).png",
       imageHeight: 150,
       imageAlt: "A tall image",

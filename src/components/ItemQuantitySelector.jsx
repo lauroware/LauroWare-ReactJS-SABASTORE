@@ -8,6 +8,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
+import Swal from "sweetalert2";
 import { CartContext } from "../contexts/CartContext";
 
 const ItemQuantitySelector = ({ stock, id, price, name }) => {
@@ -23,20 +24,35 @@ const ItemQuantitySelector = ({ stock, id, price, name }) => {
   };
 
   const addToCart = () => {
-    setCart((currItems) => {
-      const isItemFound = currItems.find((item) => item.id === id);
-      if (isItemFound) {
-        return currItems.map((item) => {
-          if (item.id === id) {
-            return { ...item, quantity: item.quantity + count };
-          } else {
-            return item;
-          }
-        });
-      } else {
-        return [...currItems, { id, quantity: count, price, name }];
-      }
-    });
+    if (count > 0) {
+      setCart((currItems) => {
+        const isItemFound = currItems.find((item) => item.id === id);
+        if (isItemFound) {
+          return currItems.map((item) => {
+            if (item.id === id) {
+              return { ...item, quantity: item.quantity + count };
+            } else {
+              return item;
+            }
+          });
+        } else {
+          return [...currItems, { id, quantity: count, price, name }];
+        }
+      });
+
+      // Mostrar SweetAlert al agregar al carrito
+      Swal.fire({
+        icon: "success",
+        title: "Producto agregado al carrito",
+        text: `Agregaste ${count} ${
+          count === 1 ? "producto" : "productos"
+        } al carrito.`,
+      });
+    } else {
+      // Aquí puedes manejar el caso cuando el contador es 0
+      // Puedes mostrar un mensaje de error o simplemente no hacer nada
+      console.warn("No se puede agregar 0 productos al carrito.");
+    }
   };
 
   return (

@@ -56,9 +56,7 @@ const ItemDetail = () => {
             <Text color="blue.800" fontSize="l">
               Categoria: {producto.category}
             </Text>
-            <Text color="red.600" fontSize="xl">
-              Stock: {producto.stock}
-            </Text>
+            <Text color="red.600" fontSize="xl"></Text>
             <Text color="green.600" fontSize="xl">
               Precio: $ {producto.price}
             </Text>

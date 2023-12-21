@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { Button, Container, Center, Heading, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { CartContext } from "../contexts/CartContext";
 
 const Cart = () => {
@@ -46,6 +47,25 @@ const Cart = () => {
   const handleIncrease = (id) => {
     // Aumentar la cantidad en 1 usando updateQuantity
     updateQuantity(id, cart.find((clothe) => clothe.id === id).quantity + 1);
+  };
+
+  const showSolicitarAlert = () => {
+    // Solicitar solo si el total es superior a $50000
+    if (total > 50000) {
+      Swal.fire({
+        icon: "success",
+        title: "Avancemos el alta de la orden de compra",
+        text: `Completa los datos, luego haz click en enviar información. Puedes descargar el pdf con el pedido realizado. Preciona finalizar para terminar el proceso. `,
+      });
+      // Puedes realizar otras acciones aquí, como redirigir a la página de confirmación, etc.
+    } else {
+      // Mostrar un mensaje indicando que el monto no es suficiente
+      Swal.fire({
+        icon: "error",
+        title: "Monto insuficiente",
+        text: `El monto total debe ser superior a $50000 para realizar la solicitud.`,
+      });
+    }
   };
 
   return (
@@ -112,9 +132,16 @@ const Cart = () => {
                 Vaciar Carrito
               </Button>
             </Link>
-            <Link to={"/checkout"}>
-              <Button colorScheme="green">Solicitar</Button>
-            </Link>
+            {total > 50000 && (
+              <Link to={"/checkout"}>
+                <Button
+                  colorScheme="green"
+                  onClick={() => showSolicitarAlert()}
+                >
+                  Solicitar
+                </Button>
+              </Link>
+            )}
           </Box>
         </Container>
       )}
