@@ -22,7 +22,7 @@ const NavBar = () => {
   return (
     <Container maxW="150rem" bg="black" color="white">
       <Flex alignItems="center" flexWrap="wrap" gap="2">
-        <Avatar size="xl" src="/assets/LOGO.png" />
+        <Avatar size="xl" src="https://totinas.com.ar/assets/tienda/LOGO.png" />
         <Box
           p="10"
           w={{ base: "100%", md: "300px" }}

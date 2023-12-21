@@ -30,14 +30,19 @@ const Checkout = () => {
     pdf.setFontSize(14);
 
     // Información del cliente
-    pdf.text(`Nombre: ${name}`, 20, 20);
-    pdf.text(`Email: ${email}`, 20, 30);
-    pdf.text(`Teléfono: ${phone}`, 20, 40);
-    pdf.text(`Dirección de entrega: ${address}`, 20, 50);
-    pdf.text(`Observaciones: ${observations}`, 20, 60);
+    pdf.text(
+      `Gracias por realizar tu compra. Verifica la información ingresada e informanos cualquier error:`,
+      20,
+      20
+    );
+    pdf.text(`Nombre: ${name}`, 20, 40);
+    pdf.text(`Email: ${email}`, 20, 50);
+    pdf.text(`Teléfono: ${phone}`, 20, 60);
+    pdf.text(`Dirección de entrega: ${address}`, 20, 70);
+    pdf.text(`Observaciones: ${observations}`, 20, 80);
 
     // Información del carrito
-    pdf.text("Detalle del Carrito:", 20, 80);
+    pdf.text("Detalle del Carrito:", 20, 100);
     cart.forEach((item, index) => {
       pdf.text(
         `${index + 1}. ${item.name} x ${item.quantity}`,
