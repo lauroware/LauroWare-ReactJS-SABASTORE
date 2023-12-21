@@ -31,7 +31,7 @@ const Checkout = () => {
 
     // Información del cliente
     pdf.text(
-      `Gracias por realizar tu compra. Verifica la información ingresada e informanos cualquier error:`,
+      `TOTINAS agradece tu solitud. Verifica la información ingresada:`,
       20,
       20
     );
@@ -47,7 +47,7 @@ const Checkout = () => {
       pdf.text(
         `${index + 1}. ${item.name} x ${item.quantity}`,
         30,
-        100 + index * 10
+        110 + index * 10
       );
     });
 
