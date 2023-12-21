@@ -17,7 +17,8 @@ import {
 import { ChevronDownIcon } from "@chakra-ui/icons";
 
 const NavBar = () => {
-  const whatsappLink = "https://wa.me/5491162366175"; // Reemplaza "tu-numero-de-telefono" con tu número de teléfono
+  const whatsappLink = "https://wa.me/+5491162366175"; // Reemplaza "tu-numero-de-telefono" con tu número de teléfono
+
   return (
     <Container maxW="150rem" bg="black" color="white">
       <Flex alignItems="center" flexWrap="wrap" gap="2">
@@ -91,6 +92,19 @@ const NavBar = () => {
               </Link>
             </MenuList>
           </Menu>
+        </Box>
+        <Spacer />
+        <Box>
+          <Button
+            as={Link}
+            to={whatsappLink}
+            size={{ base: "sm", md: "lg" }}
+            variant="outline"
+            colorScheme="black"
+            m="5"
+          >
+            Ayuda
+          </Button>
         </Box>
         <Spacer />
         <Box p={{ base: "5", md: "10" }} w="100px" h="100">
