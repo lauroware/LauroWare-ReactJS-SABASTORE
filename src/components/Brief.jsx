@@ -10,7 +10,8 @@ function App1() {
     Swal.fire({
       position: "center",
       icon: "success",
-      title: "Tu pedido a sido confirmado. Graciar por tu compra",
+      title:
+        "Hemos recibido tu solicitud. Te contactaremos a la brevedad para ultimar detalles, fecha de envío y pago. Gracias!",
       showConfirmButton: false,
       timer: 4500,
     });

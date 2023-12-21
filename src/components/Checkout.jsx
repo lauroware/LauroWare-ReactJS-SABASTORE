@@ -13,16 +13,42 @@ import {
 import { Link } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
+import jsPDF from "jspdf";
 
 const Checkout = () => {
   const [orderId, setOrderId] = useState(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState(""); // Nuevo campo para teléfono
+  const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
-  const [observations, setObservations] = useState(""); // Nuevo campo para observaciones
+  const [observations, setObservations] = useState("");
   const [cart, setCart, clearCart] = useContext(CartContext);
   const [isOrderIdGenerated, setIsOrderIdGenerated] = useState(false);
+
+  const generatePDF = () => {
+    const pdf = new jsPDF();
+    pdf.setFontSize(14);
+
+    // Información del cliente
+    pdf.text(`Nombre: ${name}`, 20, 20);
+    pdf.text(`Email: ${email}`, 20, 30);
+    pdf.text(`Teléfono: ${phone}`, 20, 40);
+    pdf.text(`Dirección de entrega: ${address}`, 20, 50);
+    pdf.text(`Observaciones: ${observations}`, 20, 60);
+
+    // Información del carrito
+    pdf.text("Detalle del Carrito:", 20, 80);
+    cart.forEach((item, index) => {
+      pdf.text(
+        `${index + 1}. ${item.name} x ${item.quantity}`,
+        30,
+        100 + index * 10
+      );
+    });
+
+    // Guarda el PDF con un nombre específico
+    pdf.save("order.pdf");
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,9 +63,9 @@ const Checkout = () => {
         const order = {
           name,
           email,
-          phone, // Agregado el campo de teléfono
+          phone,
           address,
-          observations, // Agregado el campo de observaciones
+          observations,
           cart,
         };
 
@@ -54,11 +80,12 @@ const Checkout = () => {
 
   return (
     <Container>
-      <Card className="card-main">
-        <Center>
-          <Heading as="h1">Alta de orden</Heading>
-        </Center>
-        <Image src="src/assets/LOGO.png" />
+      <Card p="4" textAlign="center">
+        <Heading as="h1" mb="4">
+          Alta de Orden
+        </Heading>
+        <Image src=".src/assets/LOGO.png" alt="Logo" mb="4" />
+
         <form onSubmit={handleSubmit}>
           <FormControl mb="4">
             <FormLabel>Nombre y Apellido</FormLabel>
@@ -85,10 +112,10 @@ const Checkout = () => {
             />
           </FormControl>
           <FormControl mb="4">
-            <FormLabel>Dirección de entrega</FormLabel>
+            <FormLabel>Dirección de Entrega</FormLabel>
             <Input
               type="text"
-              placeholder="Dirección de entrega"
+              placeholder="Dirección de Entrega"
               onChange={(e) => setAddress(e.target.value)}
             />
           </FormControl>
@@ -100,14 +127,18 @@ const Checkout = () => {
               onChange={(e) => setObservations(e.target.value)}
             />
           </FormControl>
-          <Button colorScheme="blue" type="submit">
+          <Button colorScheme="blue" type="submit" mb="4">
             Enviar Información
           </Button>
         </form>
+
         {isOrderIdGenerated && (
           <div>
             <p>Tu número de orden es: {orderId}</p>
             <p>Guárdalo para seguir el estado de tu pedido.</p>
+            <Button colorScheme="blue" onClick={generatePDF} mb="4">
+              Descargar PDF
+            </Button>
             <Link to="/brief">
               <Button colorScheme="green" onClick={clearCart}>
                 Finalizar
