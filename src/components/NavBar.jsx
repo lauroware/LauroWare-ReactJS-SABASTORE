@@ -25,27 +25,27 @@ const NavBar = () => {
         alignItems={{ base: "center", md: "flex-start" }}
         flexWrap="wrap"
         gap="2"
+        p="4"
       >
         <Avatar size="xl" src="https://totinas.com.ar/assets/tienda/LOGO.png" />
         <Box
-          p="10"
+          p="4"
           w={{ base: "100%", md: "300px" }}
-          h="100"
           textAlign={{ base: "center", md: "left" }}
         >
-          <Link to={"/welcome"}>
+          <Link to="/welcome">
             <Heading size="md">Totinas - Store Mayorista</Heading>
           </Link>
         </Box>
         <Spacer />
         <Box>
           <Menu>
-            <Link to={"/catalogue"}>
+            <Link to="/catalogue">
               <MenuButton
                 as={Button}
                 size={{ base: "md", md: "lg" }}
                 variant="outline"
-                colorScheme="White"
+                colorScheme="white"
                 m={{ base: "2", md: "5" }}
               >
                 Tienda
@@ -89,7 +89,7 @@ const NavBar = () => {
                 <Link to={`/category/${"Riñoneras"}`}>
                   <MenuItem>Riñoneras</MenuItem>
                 </Link>
-                <Link to={`/category/${"Mochis"}`}>
+                <Link to={`/category/${"Mochilas"}`}>
                   <MenuItem>Mochilas</MenuItem>
                 </Link>
                 <Link to={`/category/${"Home"}`}>
@@ -114,7 +114,7 @@ const NavBar = () => {
         </Box>
         <Spacer />
         <Box p={{ base: "5", md: "10" }} w="100px" h="100">
-          <Link to={"/cart"}>
+          <Link to="/cart">
             <CartWidget />
           </Link>
         </Box>
