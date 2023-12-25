@@ -17,11 +17,15 @@ import {
 import { ChevronDownIcon } from "@chakra-ui/icons";
 
 const NavBar = () => {
-  const whatsappLink = "https://wa.me/+5491162366175"; // Reemplaza "tu-numero-de-telefono" con tu número de teléfono
+  const whatsappLink = "https://wa.me/+5491162366175";
 
   return (
     <Container maxW="150rem" bg="black" color="white">
-      <Flex alignItems="center" flexWrap="wrap" gap="2">
+      <Flex
+        alignItems={{ base: "center", md: "flex-start" }}
+        flexWrap="wrap"
+        gap="2"
+      >
         <Avatar size="xl" src="https://totinas.com.ar/assets/tienda/LOGO.png" />
         <Box
           p="10"
@@ -39,10 +43,10 @@ const NavBar = () => {
             <Link to={"/catalogue"}>
               <MenuButton
                 as={Button}
-                size={{ base: "sm", md: "lg" }}
+                size={{ base: "md", md: "lg" }}
                 variant="outline"
                 colorScheme="White"
-                m="5"
+                m={{ base: "2", md: "5" }}
               >
                 Tienda
               </MenuButton>
@@ -51,45 +55,47 @@ const NavBar = () => {
           <Menu>
             <MenuButton
               as={Button}
-              size={{ base: "sm", md: "lg" }}
+              size={{ base: "md", md: "lg" }}
               variant="outline"
               colorScheme="black"
               rightIcon={<ChevronDownIcon />}
-              m="5"
+              m={{ base: "2", md: "5" }}
             >
-              Categorias
+              Categorías
             </MenuButton>
             <MenuList color="black" className="menu-list">
-              <Link to={`/category/${"indumentaria"}`}>
-                <MenuItem>Indumentaria</MenuItem>
-              </Link>
-              <Link to={`/category/${"Billes"}`}>
-                <MenuItem>Billes</MenuItem>
-              </Link>
-              <Link to={`/category/${"Chicos"}`}>
-                <MenuItem>Chicos</MenuItem>
-              </Link>
-              <Link to={`/category/${"Botineros"}`}>
-                <MenuItem>Botineros</MenuItem>
-              </Link>
-              <Link to={`/category/${"Estuche"}`}>
-                <MenuItem>Estuches</MenuItem>
-              </Link>
-              <Link to={`/category/${"Llaveros"}`}>
-                <MenuItem>Llaveros</MenuItem>
-              </Link>
-              <Link to={`/category/${"Bandoleras"}`}>
-                <MenuItem>Bandoleras</MenuItem>
-              </Link>
-              <Link to={`/category/${"Riñoneras"}`}>
-                <MenuItem>Riñoneras</MenuItem>
-              </Link>
-              <Link to={`/category/${"Mochis"}`}>
-                <MenuItem>Mochilas</MenuItem>
-              </Link>
-              <Link to={`/category/${"Home"}`}>
-                <MenuItem>Home</MenuItem>
-              </Link>
+              <MenuList color="black" className="menu-list">
+                <Link to={`/category/${"indumentaria"}`}>
+                  <MenuItem>Indumentaria</MenuItem>
+                </Link>
+                <Link to={`/category/${"Billes"}`}>
+                  <MenuItem>Billes</MenuItem>
+                </Link>
+                <Link to={`/category/${"Chicos"}`}>
+                  <MenuItem>Chicos</MenuItem>
+                </Link>
+                <Link to={`/category/${"Botineros"}`}>
+                  <MenuItem>Botineros</MenuItem>
+                </Link>
+                <Link to={`/category/${"Estuche"}`}>
+                  <MenuItem>Estuches</MenuItem>
+                </Link>
+                <Link to={`/category/${"Llaveros"}`}>
+                  <MenuItem>Llaveros</MenuItem>
+                </Link>
+                <Link to={`/category/${"Bandoleras"}`}>
+                  <MenuItem>Bandoleras</MenuItem>
+                </Link>
+                <Link to={`/category/${"Riñoneras"}`}>
+                  <MenuItem>Riñoneras</MenuItem>
+                </Link>
+                <Link to={`/category/${"Mochis"}`}>
+                  <MenuItem>Mochilas</MenuItem>
+                </Link>
+                <Link to={`/category/${"Home"}`}>
+                  <MenuItem>Home</MenuItem>
+                </Link>
+              </MenuList>
             </MenuList>
           </Menu>
         </Box>
@@ -98,10 +104,10 @@ const NavBar = () => {
           <Button
             as={Link}
             to={whatsappLink}
-            size={{ base: "sm", md: "lg" }}
+            size={{ base: "md", md: "lg" }}
             variant="outline"
             colorScheme="black"
-            m="5"
+            m={{ base: "2", md: "5" }}
           >
             Ayuda
           </Button>

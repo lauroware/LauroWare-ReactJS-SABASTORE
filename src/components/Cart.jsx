@@ -38,28 +38,22 @@ const Cart = () => {
       return clothe;
     });
 
-    // Eliminar el producto si la cantidad después de la reducción es 0
     const finalCart = updatedCart.filter((clothe) => !(clothe.quantity === 0));
-
     setCart(finalCart);
   };
 
   const handleIncrease = (id) => {
-    // Aumentar la cantidad en 1 usando updateQuantity
     updateQuantity(id, cart.find((clothe) => clothe.id === id).quantity + 1);
   };
 
   const showSolicitarAlert = () => {
-    // Solicitar solo si el total es superior a $50000
     if (total > 50000) {
       Swal.fire({
         icon: "success",
-        title: "Avancemos el alta de la orden de compra",
-        text: `Completa los datos, luego haz click en enviar información. Puedes descargar el pdf con el pedido realizado. Preciona finalizar para terminar el proceso. `,
+        title: "Avancemos con la orden de compra",
+        text: `Completa los datos y haz clic en enviar información. Puedes descargar el PDF con el pedido realizado. Presiona finalizar para terminar el proceso.`,
       });
-      // Puedes realizar otras acciones aquí, como redirigir a la página de confirmación, etc.
     } else {
-      // Mostrar un mensaje indicando que el monto no es suficiente
       Swal.fire({
         icon: "error",
         title: "Monto insuficiente",
@@ -75,54 +69,62 @@ const Cart = () => {
           Carrito de compras
         </Heading>
       </Center>
-      <Container maxW="container.sm" className="main-catalogue">
+      <Container maxW="90%" className="main-catalogue" p="2">
         <br />
         <br />
-        <TableContainer>
-          <Table variant="simple">
-            <Thead>
-              <Tr>
-                <Th>Producto</Th>
-                <Th>Unidades</Th>
-                <Th isNumeric>Precio</Th>
-                <Th isNumeric>Precio total</Th>
-                <Th></Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {cart.map((clothe) => (
-                <Tr key={clothe.id}>
-                  <Td>
-                    <Text as="b">{clothe.name}</Text>
-                  </Td>
-                  <Td>
-                    <Text as="b">{clothe.quantity}</Text>
-                  </Td>
-                  <Td isNumeric>$ {clothe.price}</Td>
-                  <Td isNumeric>$ {clothe.price * clothe.quantity}</Td>
-                  <Td>
-                    <Button
-                      colorScheme="red"
-                      onClick={() => handleRemove(clothe.id)}
-                    >
-                      -
-                    </Button>
-                    <Button
-                      colorScheme="green"
-                      onClick={() => handleIncrease(clothe.id)}
-                    >
-                      +
-                    </Button>
-                  </Td>
+
+        {cart.length === 0 ? (
+          <Text textAlign="center" fontSize="xl" fontWeight="bold">
+            Carrito vacío
+          </Text>
+        ) : (
+          <TableContainer>
+            <Table variant="simple" maxW="100%">
+              <Thead>
+                <Tr>
+                  <Th>Producto</Th>
+                  <Th>Unidades</Th>
+                  <Th isNumeric>Precio</Th>
+                  <Th isNumeric>Precio total</Th>
+                  <Th></Th>
                 </Tr>
-              ))}
-            </Tbody>
-          </Table>
-        </TableContainer>
+              </Thead>
+              <Tbody>
+                {cart.map((clothe) => (
+                  <Tr key={clothe.id}>
+                    <Td>
+                      <Text as="b">{clothe.name}</Text>
+                    </Td>
+                    <Td>
+                      <Text as="b">{clothe.quantity}</Text>
+                    </Td>
+                    <Td isNumeric>$ {clothe.price}</Td>
+                    <Td isNumeric>$ {clothe.price * clothe.quantity}</Td>
+                    <Td>
+                      <Button
+                        colorScheme="red"
+                        onClick={() => handleRemove(clothe.id)}
+                      >
+                        -
+                      </Button>
+                      <Button
+                        colorScheme="green"
+                        onClick={() => handleIncrease(clothe.id)}
+                      >
+                        +
+                      </Button>
+                    </Td>
+                  </Tr>
+                ))}
+              </Tbody>
+            </Table>
+          </TableContainer>
+        )}
       </Container>
+
       {cart.length > 0 && (
-        <Container maxW="container.sm">
-          <Box p="4">
+        <Container maxW="container.sm" p="4">
+          <Box>
             <Text fontWeight="bold" fontSize="2xl">
               Total: ${total}
             </Text>

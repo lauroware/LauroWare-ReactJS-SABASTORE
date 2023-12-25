@@ -43,13 +43,29 @@ const Checkout = () => {
 
     // Información del carrito
     pdf.text("Detalle del Carrito:", 20, 100);
+    let yOffset = 110;
     cart.forEach((item, index) => {
       pdf.text(
-        `${index + 1}. ${item.name} x ${item.quantity}`,
+        `${index + 1}. ${item.name} x ${item.quantity}. Precio: $${
+          item.price
+        }.- c/u`,
         30,
-        110 + index * 10
+        yOffset + index * 10
       );
     });
+
+    // Calcular la suma total del carrito
+    const totalAmount = cart.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    );
+
+    // Agregar la suma total al PDF
+    pdf.text(
+      `Monto total del pedido: $${totalAmount.toFixed(2)}`,
+      20,
+      yOffset + cart.length * 10 + 10
+    );
 
     // Guarda el PDF con un nombre específico
     pdf.save("order.pdf");

@@ -4,9 +4,9 @@ import { Container, SimpleGrid, Text } from "@chakra-ui/react";
 const ItemList = ({ clothes }) => {
   return (
     <>
-      <Container maxW="container.sm" className="main-catalogue">
+      <Container maxW="100%" className="main-catalogue">
         {clothes && clothes.length > 0 ? (
-          <SimpleGrid columns={{ base: 1, sm: 1, md: 2, lg: 2 }} spacing={4}>
+          <SimpleGrid columns={{ base: 1, sm: 1, md: 2, lg: 4 }} spacing={4}>
             {clothes.map((clothe) => (
               <Item
                 key={clothe.id}

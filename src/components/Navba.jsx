@@ -10,7 +10,7 @@ import { Flex, Box, Heading, Container } from "@chakra-ui/react";
 
 const NavBa = () => {
   return (
-    <Container maxW="150rem" bg="black" color="white" minH="100vh">
+    <Container maxW="150rem" bg="black" color="white" minH="100vh" width="100%">
       <Flex alignItems="center" flexDir="column" justify="center" py="3">
         <Box p="3" textAlign="center">
           <Link to={"/welcome"}>
