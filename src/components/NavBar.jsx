@@ -71,13 +71,13 @@ const NavBar = () => {
                 <Link to={`/category/${"Billes"}`}>
                   <MenuItem>Billes</MenuItem>
                 </Link>
-                <Link to={`/category/${"Chicos"}`}>
-                  <MenuItem>Chicos</MenuItem>
+                <Link to={`/category/${"Accesorios Masculinos"}`}>
+                  <MenuItem>Accesorios Masculinos</MenuItem>
                 </Link>
                 <Link to={`/category/${"Botineros"}`}>
                   <MenuItem>Botineros</MenuItem>
                 </Link>
-                <Link to={`/category/${"Estuche"}`}>
+                <Link to={`/category/${"Estuches"}`}>
                   <MenuItem>Estuches</MenuItem>
                 </Link>
                 <Link to={`/category/${"Llaveros"}`}>
@@ -92,8 +92,11 @@ const NavBar = () => {
                 <Link to={`/category/${"Mochilas"}`}>
                   <MenuItem>Mochilas</MenuItem>
                 </Link>
-                <Link to={`/category/${"Home"}`}>
-                  <MenuItem>Home</MenuItem>
+                <Link to={`/category/${"Neceser"}`}>
+                  <MenuItem>Neceser</MenuItem>
+                </Link>
+                <Link to={`/category/${"Varios"}`}>
+                  <MenuItem>Varios</MenuItem>
                 </Link>
               </MenuList>
             </MenuList>

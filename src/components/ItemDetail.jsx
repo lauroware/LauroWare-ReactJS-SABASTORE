@@ -1,3 +1,4 @@
+// Importa los módulos necesarios
 import {
   Center,
   Card,
@@ -12,7 +13,7 @@ import {
 import { useParams } from "react-router-dom";
 import ItemQuantitySelector from "./ItemQuantitySelector";
 import { useEffect, useState } from "react";
-import { doc, getDoc, getFirestore } from "firebase/firestore";
+import productsData from "../data/products.json"; // Importa los datos locales
 
 const ItemDetail = () => {
   const { id } = useParams();
@@ -22,14 +23,13 @@ const ItemDetail = () => {
   useEffect(() => {
     const fetchItem = async () => {
       try {
-        const db = getFirestore();
-        const induRef = doc(db, "indumentaria", id);
-        const snapshot = await getDoc(induRef);
+        // Busca el producto con el ID correspondiente en tu archivo local
+        const product = productsData.productos.find((p) => p.id === id);
 
-        if (snapshot.exists()) {
-          setProducto(snapshot.data());
+        if (product) {
+          setProducto(product);
         } else {
-          console.log("No se encontró el documento");
+          console.log("No se encontró el producto");
         }
       } catch (error) {
         console.error("Error al obtener el ítem:", error);

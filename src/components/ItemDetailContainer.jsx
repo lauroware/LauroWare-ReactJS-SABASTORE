@@ -1,7 +1,7 @@
 import ItemDetail from "./ItemDetail";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getFirestore, collection, doc, getDoc } from "firebase/firestore";
+import productsData from "../data/products.json"; // Importa los datos locales
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState(null);
@@ -10,15 +10,13 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     const fetchItem = async () => {
       try {
-        const db = getFirestore();
-        const itemDoc = doc(db, "indumentaria", id);
-        const itemSnapshot = await getDoc(itemDoc);
+        // Busca el producto con el ID correspondiente en tu archivo local
+        const product = productsData.productos.find((p) => p.id === id);
 
-        if (itemSnapshot.exists()) {
-          const itemData = { ...itemSnapshot.data(), id: itemSnapshot.id };
-          setItem(itemData);
+        if (product) {
+          setItem(product);
         } else {
-          console.log("No se encontró el ítem");
+          console.log("No se encontró el producto");
         }
       } catch (error) {
         console.error("Error al obtener el ítem:", error);
