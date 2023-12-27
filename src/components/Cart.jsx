@@ -47,7 +47,7 @@ const Cart = () => {
   };
 
   const showSolicitarAlert = () => {
-    if (total > 50000) {
+    if (total > 65000) {
       Swal.fire({
         icon: "success",
         title: "Avancemos con la orden de compra",
@@ -57,7 +57,9 @@ const Cart = () => {
       Swal.fire({
         icon: "error",
         title: "Monto insuficiente",
-        text: `El monto total debe ser superior a $50000 para realizar la solicitud.`,
+        text: `El monto total debe ser superior a $65000 para realizar la solicitud. Faltan $${
+          65000 - total
+        }.`,
       });
     }
   };
@@ -122,7 +124,7 @@ const Cart = () => {
         )}
       </Container>
 
-      {cart.length > 0 && (
+      {cart.length > 0 && total > 0 && (
         <Container maxW="container.sm" p="4">
           <Box>
             <Text fontWeight="bold" fontSize="2xl">
@@ -134,7 +136,7 @@ const Cart = () => {
                 Vaciar Carrito
               </Button>
             </Link>
-            {total > 50000 && (
+            {total > 65000 && (
               <Link to={"/checkout"}>
                 <Button
                   colorScheme="green"
@@ -143,6 +145,11 @@ const Cart = () => {
                   Solicitar
                 </Button>
               </Link>
+            )}
+            {total <= 65000 && (
+              <Button colorScheme="green" onClick={() => showSolicitarAlert()}>
+                Faltan ${65000 - total} para solicitar
+              </Button>
             )}
           </Box>
         </Container>
