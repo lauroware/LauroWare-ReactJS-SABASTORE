@@ -11,6 +11,7 @@ import "./index.css";
 import { CartProvider } from "./contexts/CartContext";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
+import LogoWhatapp from "./components/logowhatsapp.jsx";
 
 function App() {
   useEffect(() => {
@@ -20,7 +21,7 @@ function App() {
   const mostrarAlerta = () => {
     Swal.fire({
       title: "Bienvenidos a Totinas Mayoristas",
-      text: "Presiona Tienda para empezar. Puedes contactarnos con el botón ayuda",
+      text: "Presiona Tienda para empezar. Puedes solicitar ayuda vía Whatsapp",
       imageUrl: "https://totinas.com.ar/assets/img/logo%20(2).png",
       imageHeight: 150,
       imageAlt: "A tall image",
@@ -45,6 +46,7 @@ function App() {
           <Route exact path="/checkout" element={<Checkout />} />
           <Route exact path="/brief" element={<Brief />} />
         </Routes>
+        <LogoWhatapp />
         <NavBa />
       </BrowserRouter>
     </CartProvider>

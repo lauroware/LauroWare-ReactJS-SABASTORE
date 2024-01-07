@@ -18,26 +18,11 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 
 const NavBar = () => {
   const whatsappLink = "https://wa.me/+5491162366175";
-
-  // Enlaces configurables para el botón "Info"
-  const infoLinks = [
-    {
-      label: "Carpeta de Fotos",
-      to: "https://drive.google.com/drive/folders/1ROp7OmgLBdO_ciwxCKhjHnM3jQidgP4v",
-    },
-    {
-      label: "Catálogo",
-      to: "https://drive.google.com/file/d/1ks94_7jW6fGyKWs9HBtEm50DHI9vo96I/view?usp=sharing",
-    },
-    {
-      label: "Condiciones Mayoristas",
-      to: "https://totinas.com.ar/mayoristas",
-    },
-    {
-      label: "Catalogo de estampas",
-      to: "https://drive.google.com/file/d/1JgrEdv4egCXOs2lsY75mzM_PJYbVrxWp/view?usp=drivesdk",
-    },
-  ];
+  const mayoristasLink = "https://totinas.com.ar/mayoristas";
+  const catalogoLink =
+    "https://drive.google.com/file/d/1ks94_7jW6fGyKWs9HBtEm50DHI9vo96I/view";
+  const estampasLink =
+    "https://drive.google.com/file/d/1JgrEdv4egCXOs2lsY75mzM_PJYbVrxWp/view";
 
   return (
     <Container maxW="150rem" bg="black" color="white">
@@ -122,44 +107,51 @@ const NavBar = () => {
             </MenuList>
           </Menu>
         </Box>
-        <Spacer />
+
         <Box>
           {/* Botón "Ayuda" */}
           <Button
             as={Link}
-            to={whatsappLink}
+            to={mayoristasLink}
             size={{ base: "md", md: "lg" }}
             variant="outline"
             colorScheme="black"
             m={{ base: "2", md: "5" }}
+            target="_blank"
           >
-            Ayuda
+            Info Mayorista
           </Button>
         </Box>
-        <Spacer />
+
         <Box>
-          {/* Botón "Info" */}
-          <Menu>
-            <MenuButton
-              as={Button}
-              size={{ base: "md", md: "lg" }}
-              variant="outline"
-              colorScheme="black"
-              rightIcon={<ChevronDownIcon />}
-              m={{ base: "2", md: "5" }}
-            >
-              Info
-            </MenuButton>
-            <MenuList color="black" className="menu-list">
-              {infoLinks.map((link) => (
-                <Link key={link.to} to={link.to}>
-                  <MenuItem>{link.label}</MenuItem>
-                </Link>
-              ))}
-            </MenuList>
-          </Menu>
+          {/* Botón adicional 1 */}
+          <Button
+            as={Link}
+            to={catalogoLink}
+            size={{ base: "md", md: "lg" }}
+            variant="outline"
+            colorScheme="black"
+            m={{ base: "2", md: "5" }}
+            target="_blank"
+          >
+            Catalogo
+          </Button>
         </Box>
-        <Spacer />
+        <Box>
+          {/* Botón adicional 2 */}
+          <Button
+            as={Link}
+            to={estampasLink}
+            size={{ base: "md", md: "lg" }}
+            variant="outline"
+            colorScheme="black"
+            m={{ base: "2", md: "5" }}
+            target="_blank"
+          >
+            Estampas
+          </Button>
+        </Box>
+
         <Box p={{ base: "5", md: "10" }} w="100px" h="100">
           {/* Icono de carrito con enlace a la página de carrito */}
           <Link to="/cart">

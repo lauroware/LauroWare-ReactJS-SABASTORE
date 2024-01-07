@@ -10,7 +10,7 @@ import {
   Box,
 } from "@chakra-ui/react";
 import { Button, Container, Center, Heading, Text } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Importa useNavigate aquí
 import Swal from "sweetalert2";
 import { CartContext } from "../contexts/CartContext";
 
@@ -18,6 +18,8 @@ const Cart = () => {
   const [cart, setCart, clearCart, removeId, updateQuantity] =
     useContext(CartContext);
   const [total, setTotal] = useState(0);
+
+  const navigate = useNavigate(); // Mueve useNavigate aquí
 
   useEffect(() => {
     let totalAmount = 0;
@@ -47,21 +49,12 @@ const Cart = () => {
   };
 
   const showSolicitarAlert = () => {
-    if (total > 65000) {
-      Swal.fire({
-        icon: "success",
-        title: "Avancemos con la orden de compra",
-        text: `Completa los datos y haz clic en enviar información. Puedes descargar el PDF con el pedido realizado. Presiona finalizar para terminar el proceso.`,
-      });
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "Monto insuficiente",
-        text: `El monto total debe ser superior a $65000 para realizar la solicitud. Faltan $${
-          65000 - total
-        }.`,
-      });
-    }
+    // ...
+  };
+
+  const handleContinueShopping = () => {
+    console.log("Redirigiendo a /catalogue");
+    navigate("/catalogue");
   };
 
   return (
@@ -151,6 +144,11 @@ const Cart = () => {
                 Faltan ${65000 - total} para solicitar
               </Button>
             )}
+
+            {/* Botón "Continuar Comprando" */}
+            <Button onClick={handleContinueShopping} ml="2">
+              Continuar Comprando
+            </Button>
           </Box>
         </Container>
       )}

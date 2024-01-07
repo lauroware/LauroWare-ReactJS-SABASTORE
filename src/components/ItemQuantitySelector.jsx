@@ -6,10 +6,13 @@ import {
   Tooltip,
   Center,
   Button,
+  Box,
+  Divider,
 } from "@chakra-ui/react";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import Swal from "sweetalert2";
 import { CartContext } from "../contexts/CartContext";
+import { Link } from "react-router-dom";
 
 const ItemQuantitySelector = ({ stock, id, price, name }) => {
   const [cart, setCart] = useContext(CartContext);
@@ -49,14 +52,28 @@ const ItemQuantitySelector = ({ stock, id, price, name }) => {
         } al carrito.`,
       });
     } else {
-      // Aquí puedes manejar el caso cuando el contador es 0
-      // Puedes mostrar un mensaje de error o simplemente no hacer nada
       console.warn("No se puede agregar 0 productos al carrito.");
     }
   };
 
+  const renderViewCartButton = () => {
+    if (cart.length > 0) {
+      return (
+        <Box textAlign="center" mt="2">
+          <Divider my="2" />
+          <Link to="/cart">
+            <Button size="sm" variant="outline" colorScheme="blue">
+              Ver Carrito
+            </Button>
+          </Link>
+        </Box>
+      );
+    }
+    return null;
+  };
+
   return (
-    <>
+    <Box>
       <ButtonGroup size={{ base: "sm", md: "md" }} isAttached variant="outline">
         {count < 1 ? (
           <Tooltip label="Stock mínimo alcanzado" placement="bottom">
@@ -82,7 +99,8 @@ const ItemQuantitySelector = ({ stock, id, price, name }) => {
           </Tooltip>
         )}
       </ButtonGroup>
-    </>
+      {renderViewCartButton()}
+    </Box>
   );
 };
 
