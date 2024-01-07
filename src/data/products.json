@@ -3,36 +3,40 @@
     {
       "id": "billecrocoroja",
       "category": "Billes",
-      "description": "Billetera pocket roja",
+      "description": "Billetera Pocket Roja",
       "imag": "https://http2.mlstatic.com/D_NQ_NP_640934-MLA71923151464_092023-O.webp",
-      "name": "Billetera roja",
+      "imag2": "https://http2.mlstatic.com/D_NQ_NP_649849-MLA71978581841_092023-O.webp",
+      "name": "Billetera P. Roja Croco",
       "price": 13530,
       "stock": 10
     },
     {
       "id": "1",
       "category": "Billes",
-      "description": "Billetera pocket roja",
+      "description": "Billetera Pocket Roja",
       "imag": "https://http2.mlstatic.com/D_NQ_NP_2X_958491-MLA71605143334_092023-F.webp",
-      "name": "Billetera roja",
+      "imag2": "https://http2.mlstatic.com/D_NQ_NP_649849-MLA71978581841_092023-O.webp",
+      "name": "Billetera Pocket Roja",
       "price": 13530,
       "stock": 10
     },
     {
       "id": "2",
       "category": "Billes",
-      "description": "Bille pocket animal print",
+      "description": "Billetera Pocket Print",
       "imag": "https://http2.mlstatic.com/D_NQ_NP_2X_653716-MLA71899594162_092023-F.webp",
-      "name": "Bille pocket animal print",
+      "imag2": "https://http2.mlstatic.com/D_NQ_NP_761219-MLA54821247657_042023-O.webp",
+      "name": "Billetera Pocket Print",
       "price": 13530,
       "stock": 10
     },
     {
       "id": "3",
       "category": "Billes",
-      "description": "Bille pocket marrón zuela",
+      "description": "Bille pocket marrón suela",
       "imag": "https://http2.mlstatic.com/D_NQ_NP_2X_873546-MLA69910084492_062023-F.webp",
-      "name": "Billetera pocket marrón zuela",
+      "imag2": "https://http2.mlstatic.com/D_NQ_NP_761219-MLA54821247657_042023-O.webp",
+      "name": "Billetera Pocket Marrón",
       "price": 13530,
       "stock": 5
     },
@@ -57,9 +61,9 @@
     {
       "id": "6",
       "category": "Accesorios Masculinos",
-      "description": "Billetera Pocket OLB",
+      "description": "Billetera Pocket OLB color marron",
       "imag": "https://http2.mlstatic.com/D_NQ_NP_2X_897151-MLA71900131462_092023-F.webp",
-      "name": "Billetera Pocket OLB. Marrón",
+      "name": "Billetera Pocket Marrón",
       "price": 13530,
       "stock": 10
     },
@@ -68,7 +72,7 @@
       "category": "Accesorios Masculinos",
       "description": "Billetera Pocket OLB",
       "imag": "https://http2.mlstatic.com/D_NQ_NP_804559-MLA72365856732_102023-O.webp",
-      "name": "Billetera Pocket OLB. Negra",
+      "name": "Billetera Pocket Negra",
       "price": 13530,
       "stock": 10
     },
@@ -77,7 +81,7 @@
       "category": "Accesorios Masculinos",
       "description": "Bille clásica interior de cuero, exterior de cordura sublimada. Estampa personalizable a elección.",
       "imag": "https://http2.mlstatic.com/D_NQ_NP_925913-MLA69894434982_062023-O.webp",
-      "name": "Billetera Clasica, cuero y cordura. NEGRA",
+      "name": "Bille Cuero/Cordura Black",
       "price": 12000,
       "stock": 10
     },
@@ -86,7 +90,7 @@
       "category": "Accesorios Masculinos",
       "description": "Bille clásica interior de cuero, exterior de cordura sublimada. Estampa personalizable a elección.",
       "imag": "https://http2.mlstatic.com/D_NQ_NP_917402-MLA69934467968_062023-O.webp",
-      "name": "Billetera Clasica, cuero y cordura. MARRON",
+      "name": "Billetera Cuero/Cordura Brown",
       "price": 12000,
       "stock": 10
     },
@@ -95,7 +99,7 @@
       "category": "Accesorios Masculinos",
       "description": "Amplio y de excelente calidad. 31 cm x 12 cm x 17 cm",
       "imag": "https://http2.mlstatic.com/D_NQ_NP_882742-MLA73500625108_122023-O.webp",
-      "name": "Botinero Clásico, para botines",
+      "name": "Botinero Clásico",
       "price": 7500,
       "stock": 10
     },
@@ -167,6 +171,7 @@
       "category": "Botineros",
       "description": "IDEAL PARA SALIR DE CASA CON LO NECESARIO A LA MANO, USARLO PARA EL GYM O PARA PAÑALERO SI TENES UN BEBE. DE SIMIL NEOPRENE ESTAMPADO, CON MANIJA DE SIMIL NEOPRENE, Y CIERRE DE PLASTICO. MEDIDAS: 23CM X 16 CM X 11,5 CM",
       "imag": "https://http2.mlstatic.com/D_NQ_NP_746757-MLA54700683859_032023-O.webp",
+      "imag2": "https://i.imgur.com/k10220i.png",
       "name": "Botinero Estampa 1",
       "price": 4972,
       "stock": 10
@@ -581,6 +586,7 @@
       "category": "Neceser",
       "description": "IDEAL PARA GUARDAR MAQUILLAJES COSAS DE HIGIENE PERSONAL, ORGANIZADOR DE CARTELA Y MAS! DE SIMIL NEOPRENE ESTAMPADO Y CIERRE DE PLASTICO MEDIDAS: 22 CM X 14 CM X 8 CM",
       "imag": "https://http2.mlstatic.com/D_NQ_NP_777465-MLA73550798154_122023-O.webp",
+      "imag2": "https://i.imgur.com/k10220i.png",
       "name": "Neceser estampa 1",
       "price": 5940,
       "stock": 10
@@ -869,6 +875,7 @@
       "category": "Estuches",
       "description": "PASA GUARDAR LO QUE QUIERAS! DE ORGANIZADOR PARA LA CARTERA, DE CARTUCHERA O PARA GUARDAR TUS ANTEOJOS FAVORITOS! EL SECRETO ? SUPER ACOLCHONADITO PARA QUE NO SE TE ROMPAN NI RAYEN. DE SIMIL NEOPRENE ESTAMPADO Y CIERRE DE PLASTICO. MEDIDAS: 16,5 CM X 8,5 CM X 4,5 CM",
       "imag": "https://http2.mlstatic.com/D_NQ_NP_704889-MLA72696700284_112023-O.webp",
+      "imag2": "https://i.imgur.com/k10220i.png",
       "name": "Estuche estampa 1",
       "price": 2244,
       "stock": 10

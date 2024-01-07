@@ -1,10 +1,16 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext(null);
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  // Intenta obtener el carrito almacenado en el localStorage
+  const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // Usa el estado inicial como el carrito almacenado o un array vacío si no hay nada almacenado
+  const [cart, setCart] = useState(storedCart);
+
   const clearCart = () => setCart([]);
+
   const removeId = (id) => setCart(cart.filter((clothe) => clothe.id !== id));
 
   const updateQuantity = (id, newQuantity) => {
@@ -19,6 +25,11 @@ export const CartProvider = ({ children }) => {
     });
     setCart(updatedCart);
   };
+
+  useEffect(() => {
+    // Almacena el carrito en el localStorage cada vez que cambia
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   return (
     <CartContext.Provider

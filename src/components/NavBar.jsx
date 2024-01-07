@@ -32,13 +32,18 @@ const NavBar = () => {
         gap="2"
         p="4"
       >
-        <Avatar size="xl" src="https://totinas.com.ar/assets/tienda/LOGO.png" />
+        <Link to="/catalogue">
+          <Avatar
+            size="xl"
+            src="https://totinas.com.ar/assets/tienda/LOGO.png"
+          />
+        </Link>
         <Box
           p="4"
           w={{ base: "100%", md: "300px" }}
           textAlign={{ base: "center", md: "left" }}
         >
-          <Link to="/welcome">
+          <Link to="/catalogue">
             <Heading size="md">Totinas - Store Mayorista</Heading>
           </Link>
         </Box>

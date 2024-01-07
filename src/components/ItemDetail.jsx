@@ -1,9 +1,8 @@
-// Importa los módulos necesarios
+import React, { useEffect, useState } from "react";
 import {
   Center,
   Card,
   CardBody,
-  Image,
   Stack,
   Heading,
   Text,
@@ -11,21 +10,21 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
+import Slider from "react-slick";
 import ItemQuantitySelector from "./ItemQuantitySelector";
-import { useEffect, useState } from "react";
-import productsData from "../data/products.json"; // Importa los datos locales
+import productsData from "../data/products.json";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const ItemDetail = () => {
   const { id } = useParams();
-
   const [producto, setProducto] = useState(null);
 
   useEffect(() => {
     const fetchItem = async () => {
       try {
-        // Busca el producto con el ID correspondiente en tu archivo local
         const product = productsData.productos.find((p) => p.id === id);
-
         if (product) {
           setProducto(product);
         } else {
@@ -40,14 +39,39 @@ const ItemDetail = () => {
   }, [id]);
 
   if (!producto) {
-    return null; // O podrías mostrar un mensaje de carga
+    return null;
   }
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
 
   return (
     <Center p="1rem">
       <Card className="card-main">
         <CardBody>
-          <Image borderRadius="lg" src={producto.imag} />
+          <Slider {...settings}>
+            <div>
+              <img
+                src={producto.imag}
+                alt={`Image 1 of ${producto.name}`}
+                style={{ borderRadius: "8px" }}
+              />
+            </div>
+            <div>
+              <img
+                src={producto.imag2}
+                alt={`Image 2 of ${producto.name}`}
+                style={{ borderRadius: "8px" }}
+              />
+            </div>
+            {/* Agrega más imágenes según sea necesario */}
+          </Slider>
+
           <Stack mt="6" spacing="3">
             <Heading size="md">{producto.name}</Heading>
             <Text color="blue.800" fontSize="l">
