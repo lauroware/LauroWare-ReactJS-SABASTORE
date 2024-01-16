@@ -417,6 +417,16 @@
       "stock": 5
     },
     {
+      "id": "bolsitacelu",
+      "category": "Varios",
+      "description": "LA PENSAMOS PARA QUE PUEDAS CARGAR TU CELU SIN EL RIESGO QUE SE TE CAIGA Y SE ROMPA! SOLO TENES QUE COLGARLA DEL ENCHUFE Y TE OLVIDAS! TMB LA PODES USAR EN EL AUTO! BASE DE CUERO ECOLOGICO Y BOLSILLO DE SIMIL NEOPRENE ESTAMPADO. MEDIDAS: 10,5 CM X 27 CM",
+      "imag": "https://i.imgur.com/b5Ms4wL.jpg",
+      "imag2": "https://i.imgur.com/b5Ms4wL.jpg",
+      "name": "Bolsita para el celu",
+      "price": 3600,
+      "stock": 5
+    },
+    {
       "id": "38",
       "category": "Llaveros",
       "description": "Pack de llaveros personalizados. x20",
@@ -604,7 +614,7 @@
       "imag": "https://i.imgur.com/WOSPXtB.jpg",
       "imag2": "https://i.imgur.com/DbEZR8Z.jpg",
       "name": "Bolsas para el auto",
-      "price": 14938,
+      "price": 4400,
       "stock": 10
     },
     {
@@ -613,7 +623,7 @@
       "description": "Tag de cuero para equipaje. 6CM",
       "imag": "https://http2.mlstatic.com/D_NQ_NP_985071-MLA71519274638_092023-O.webp",
       "name": "Tag para equipaje",
-      "price": 3500,
+      "price": 2500,
       "stock": 10
     },
     {
@@ -623,7 +633,7 @@
       "imag": "https://i.imgur.com/BPTasKg.jpg",
       "imag2": "https://i.imgur.com/KQTffhd.jpg",
       "name": "Matera Totinas",
-      "price": 8500,
+      "price": 13500,
       "stock": 10
     },
     {

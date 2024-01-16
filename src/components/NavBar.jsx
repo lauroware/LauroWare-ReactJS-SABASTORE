@@ -20,7 +20,7 @@ const NavBar = () => {
   const whatsappLink = "https://wa.me/+5491162366175";
   const mayoristasLink = "https://totinas.com.ar/mayoristas";
   const catalogoLink =
-    "https://drive.google.com/file/d/1ks94_7jW6fGyKWs9HBtEm50DHI9vo96I/view";
+    "https://drive.google.com/file/d/1sWaxJ5uxmTSOw_i1CKNswikLuWOEP9jS/view?usp=drive_link";
   const estampasLink =
     "https://drive.google.com/file/d/1JgrEdv4egCXOs2lsY75mzM_PJYbVrxWp/view";
 
