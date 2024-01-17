@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import NavBar from "./components/NavBar";
@@ -21,7 +21,7 @@ function App() {
   const mostrarAlerta = () => {
     Swal.fire({
       title: "Bienvenidos a Totinas Mayoristas",
-      text: "Presiona Tienda para empezar. Puedes solicitar ayuda vía Whatsapp",
+      text: "Puedes solicitar ayuda durante el proceso vía Whatsapp",
       imageUrl: "https://totinas.com.ar/assets/img/logo%20(2).png",
       imageHeight: 150,
       imageAlt: "A tall image",
@@ -33,6 +33,8 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
+          {/* Redirige automáticamente a /catalogue al iniciar la aplicación */}
+          <Route path="/" element={<Navigate to="/catalogue" replace />} />
           <Route exact path="/welcome" element={<Welcome />} />
           <Route exact path="/catalogue" element={<ItemListContainer />} />
           <Route
@@ -42,7 +44,6 @@ function App() {
           />
           <Route exact path="/item/:id" element={<ItemDetailContainer />} />
           <Route exact path="/cart" element={<Cart />} />
-
           <Route exact path="/checkout" element={<Checkout />} />
           <Route exact path="/brief" element={<Brief />} />
         </Routes>
