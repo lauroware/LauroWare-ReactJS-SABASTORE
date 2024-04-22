@@ -12,7 +12,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-const Item = ({ id, name, stock, category, imag }) => {
+const Item = ({ id, name, price, stock, category, imag }) => {
   return (
     <div>
       <div key={id}>
@@ -22,6 +22,7 @@ const Item = ({ id, name, stock, category, imag }) => {
               <Image borderRadius="lg" src={imag} />
               <Stack mt="6" spacing="3">
                 <Heading size="md">{name}</Heading>
+                <Heading size="md">Precio: $ {price}</Heading>
 
                 <Text color="blue.800" fontSize="l"></Text>
                 <Text color="red.600" fontSize="xl"></Text>
