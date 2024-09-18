@@ -129,7 +129,7 @@ const Cart = () => {
                 Vaciar Carrito
               </Button>
             </Link>
-            {total > 80000 && (
+            {total > 90000 && (
               <Link to={"/checkout"}>
                 <Button
                   colorScheme="green"
@@ -139,9 +139,9 @@ const Cart = () => {
                 </Button>
               </Link>
             )}
-            {total <= 80000 && (
+            {total <= 90000 && (
               <Button colorScheme="green" onClick={() => showSolicitarAlert()}>
-                Faltan ${80000 - total} para solicitar
+                Faltan ${90000 - total} para solicitar
               </Button>
             )}
 
