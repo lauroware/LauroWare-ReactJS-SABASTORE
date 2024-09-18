@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Totinas Mayoristas" />
+    <meta property="og:description" content="Catálogo de accesorios y regalos empresariales." />
+    <meta property="og:image" content="https://totinas.com.ar/assets/img/logo%20(2).png" />
+    <meta property="og:url" content="https://mayoristas.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Totinas Mayoristas</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
