@@ -105,6 +105,9 @@ const NavBar = () => {
                 <Link to={`/category/${"Neceser"}`}>
                   <MenuItem>Neceser</MenuItem>
                 </Link>
+                <Link to={`/category/${"Linea Mamá"}`}>
+                  <MenuItem>Linea Mamá</MenuItem>
+                </Link>
                 <Link to={`/category/${"Varios"}`}>
                   <MenuItem>Varios</MenuItem>
                 </Link>
